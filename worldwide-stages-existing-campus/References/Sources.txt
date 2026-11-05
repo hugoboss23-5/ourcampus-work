@@ -1,0 +1,13 @@
+REFERENCE IMAGES | 15 September 2026
+
+Operator aerial.png
+Original 4,000 x 2,250 aerial extracted from Worldwide Stages' Building 400 directions PDF. PDF created December 2022, published January 2023. Photograph date unknown.
+https://www.worldwidestages.com/wp-content/uploads/2023/01/Directions-WWS-Bldg-400.pdf
+
+Appraisal overhead.png
+Page 56 of the supplied A&M draft appraisal, August 2026. Date of the underlying aerial photograph is unknown.
+
+Survey building outline.png
+Building crop from the supplied Topographic Survey - 38 Acres, revised 2021. Source drawing, not a photograph.
+
+These sources do not document every exterior elevation or establish present-day site conditions. Individual facade openings and small details remain interpretations in the model.

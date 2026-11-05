@@ -1,0 +1,22 @@
+WORLDWIDE STAGES | EXISTING CAMPUS
+15 September 2026
+
+START WITH THE BLENDER FILE
+Worldwide Stages - Existing Campus.blend is the editable master.
+It preserves native geometry, procedural materials, lighting,
+three presentation cameras plus a survey overview camera.
+Built with Blender 4.5 LTS, in meters. No external textures needed.
+
+Three PNGs show the Blender model at 3,840 x 2,400 pixels.
+
+The two GLB files are portable copies for other 3D applications.
+Their material appearance is simpler than the Blender master.
+Building Only.glb excludes the grounds and landscape.
+
+References contains original-resolution source images.
+Viewer compares Blender renders and a rotatable GLB with those sources.
+The viewer is in the Viewer folder.
+
+Geometry comes from a revised 2021 survey and 2018 aerial scan.
+Individual facade details are interpretations, not a measured
+current as-built. Read Source notes.txt before relying on dimensions.

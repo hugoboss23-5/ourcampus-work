@@ -1,0 +1,51 @@
+WHAT THE MODEL REPRESENTS
+
+The existing connected campus only. No proposed soundstages,
+data centers, outdoor crowds or future construction are included.
+This is an exterior visualization, not a current measured as-built,
+construction model, interior model or verified property boundary.
+
+SOURCES AND ACCURACY
+
+Building outline: vector topographic survey revised in 2021,
+with its original 100 feet per inch scale. The modeled footprint
+is approximately 18,283 square meters; this is footprint area,
+not the property's reported gross building area.
+
+Roof tiers: fitted to February 27, 2018 airborne LiDAR returns.
+Small classification slivers at exterior roof edges were consolidated
+within 0.12 meters; source roof levels were retained.
+The survey-to-scan alignment is a visually supported candidate;
+its full survey datum/foot convention has not been established.
+Elevations are expressed in a local display frame with 225 meters
+subtracted from NAVD88. Do not treat display Z as finished-floor
+height above ground or use it for construction.
+
+Appearance: operator's Building 400 directions aerial (PDF
+created December 2022, published January 2023; photograph date
+unknown), the January 2023 operator press kit, and supplied assets.
+
+Source-derived: building perimeter, broad roof tiers, canopy
+location, historical terrain, native parking-line locations and
+historical tree-canopy locations.
+
+Interpreted: individual facade openings and mullions, parapet
+thickness, atrium roof framing, canopy rounding, rooftop equipment
+shapes, some pavement and sidewalk connections, pond edge finish,
+vegetation forms, parking lights, cars and material appearance.
+These details are visual approximations, not measured drawings.
+Neighboring properties and complete road surroundings are omitted.
+
+No 100-foot stage height or future expansion was assumed.
+
+SOURCE LINKS
+
+Operator aerial and directions:
+https://www.worldwidestages.com/wp-content/uploads/2023/01/Directions-WWS-Bldg-400.pdf
+
+Operator press kit:
+https://www.worldwidestages.com/wp-content/uploads/2023/01/EPK-January-2023.pdf
+
+Local originals and numerical checks remain preserved in the
+regenerative-data-center-model project. Build scripts are also
+preserved there for reproducibility. Original assets were not changed.

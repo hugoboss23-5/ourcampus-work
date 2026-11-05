@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worldwide Stages • Campus & references</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/addons/"}}</script>
+</head>
+<body>
+<header><div><span class="eyebrow">WORLDWIDE STAGES</span><h1>The existing campus</h1><div class="working-status">WORKING MODEL · SITE LAYOUT UNDER CORRECTION</div></div><div class="edition">3D MODEL + SOURCE PHOTOS<span>15 SEPTEMBER 2026</span></div></header>
+<main>
+ <section class="model-panel">
+  <div class="quality-bar"><button id="render-mode" class="active">Blender render</button><button id="orbit-mode">Rotate 3D geometry</button><span id="quality-note">Original Blender materials and lighting</span></div><div class="toolbar"><div class="tabs" aria-label="Camera views"><button data-view="aerial" class="active">Campus</button><button data-view="front">Front</button><button data-view="rear">Rear / pond</button><button data-view="entry">Arrival</button><button data-view="roof">Roof</button></div><button id="save-picture">Save picture</button><button id="site" aria-pressed="true">Grounds on</button></div>
+  <div id="render-stage"><img id="blender-render" src="../01 - Campus Aerial.png" draggable="false" alt="Full-resolution Blender render of the existing campus"><div class="photo-controls"><button id="render-minus">−</button><button id="render-fit">Fit</button><button id="render-plus">+</button></div><div class="render-label">BLENDER · 3,840 × 2,400</div></div><div id="viewport" aria-label="Rotatable 3D campus. Drag to rotate, scroll to zoom, right drag to pan."><div id="loading">Opening the 3D model…</div><div id="view-title">Campus aerial</div><div class="zoom-controls"><button id="closer" aria-label="Zoom in">+</button><button id="farther" aria-label="Zoom out">−</button><button id="reset" aria-label="Reset view">↺</button></div></div>
+  <div class="controls-hint" id="interaction-hint">Drag to rotate <span>·</span> Scroll / pinch to zoom <span>·</span> Right-drag to pan <span>·</span> Double-click to inspect a detail</div>
+  <footer><span id="status">Loading geometry</span><span class="downloads"><a href="../Worldwide%20Stages%20-%20Existing%20Campus.blend" download>Blender master ↓</a><a href="../Worldwide%20Stages%20-%20Existing%20Campus.glb" download>Portable GLB ↓</a></span></footer>
+ </section>
+ <aside>
+  <div class="reference-heading"><div><span class="eyebrow">COMPARE WITH THE SOURCE</span><h2>Reference pictures</h2></div><button id="expand-photo" aria-label="Enlarge reference photo">⤢</button></div>
+  <div class="reference-tabs"><button data-ref="aerial" class="active">Operator aerial</button><button data-ref="overhead">Overhead</button><button data-ref="survey">Survey</button></div>
+  <div id="photo-stage"><img id="reference" src="../References/Operator aerial.png" draggable="false" alt="Worldwide Stages operator aerial showing the existing campus, parking, atrium and pond"><div class="photo-controls"><button id="photo-minus" aria-label="Zoom reference out">−</button><button id="photo-reset">Fit</button><button id="photo-plus" aria-label="Zoom reference in">+</button></div></div>
+  <p id="photo-caption">Worldwide Stages, Building 400 directions PDF. Published January 2023; photo date unknown. Original 4,000 × 2,250 image.</p>
+  <div class="source-note"><strong>What is established</strong><p>Building outline: survey revised 2021. Roof levels and terrain: 2018 scan.</p><strong>What still needs checking</strong><p>Parking, planting and paths are being corrected against the survey and aerial. Windows, finishes and rear details remain interpreted. This version is not ready for client use.</p></div>
+  <a id="original-photo" href="../References/Operator aerial.png" target="_blank">Open full-resolution reference ↗</a>
+ </aside>
+</main>
+<script type="module" src="viewer.js"></script>
+</body></html>

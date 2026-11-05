@@ -1,0 +1,1061 @@
+{
+  "date": "2026-10-01",
+  "status": "Schematic contractor planning options, not issued for construction",
+  "assumptions": [
+    "No verified parcel boundary, survey, topography, geotechnical report or construction budget.",
+    "Schematic/not issued for construction. Proposed structural profiles, slab thicknesses, facade build-ups and roofs require engineered selection.",
+    "Thirty-acre outdoor envelope is planning allocation, not a confirmed parcel.",
+    "8000 outdoor guests is a target; final occupancy, egress, fire access and accessibility require engineered/code review.",
+    "20MW utility, water/sewer capacity and zoning/site approvals unresolved. Sewer restrictions require city confirmation.",
+    "Every model and drawing is a design alternative for contractor planning and pricing. No quantities are procurement instructions."
+  ],
+  "options": [
+    {
+      "id": "option-01",
+      "title": "Twin Gables / Cross-Axis Park",
+      "design": "Parallel compact halls with a short shared runnel and outdoor fields directly behind the sports hall.",
+      "parking": {
+        "strategy": "garage",
+        "garage_spaces": 1500,
+        "surface_spaces": 0
+      },
+      "model": "option-01.glb",
+      "facts": {
+        "building_area_sf": 200000,
+        "site_area_acres": 44.94846888887737,
+        "main_halls": 2,
+        "parking_structures": 1,
+        "footprint_acres": 4.591368227731864,
+        "outdoor_acres": 30,
+        "pickleball_total": 24,
+        "clear_height_ft": 37,
+        "structural_grid_span_ft": 150
+      },
+      "views": {
+        "overview": {
+          "p": [
+            650.0,
+            390,
+            272.5
+          ],
+          "t": [
+            170.0,
+            0,
+            -267.5
+          ],
+          "label": "Whole campus"
+        },
+        "sports": {
+          "p": [
+            182.72,
+            95,
+            54.2
+          ],
+          "t": [
+            57.72,
+            7,
+            -80.8
+          ],
+          "label": "sports hall exterior"
+        },
+        "events": {
+          "p": [
+            284.15999999999997,
+            95,
+            54.2
+          ],
+          "t": [
+            159.16,
+            7,
+            -80.8
+          ],
+          "label": "events hall exterior"
+        },
+        "arrival": {
+          "p": [
+            -18.0,
+            1.7,
+            -18.0
+          ],
+          "t": [
+            34.86,
+            11,
+            -65.56
+          ],
+          "label": "Arrival at human height"
+        },
+        "garage": {
+          "p": [
+            406.0,
+            85,
+            35.0
+          ],
+          "t": [
+            276.0,
+            8,
+            -90.0
+          ],
+          "label": "Garage exterior"
+        },
+        "gardens": {
+          "p": [
+            19.0,
+            1.7,
+            -302.9063091
+          ],
+          "t": [
+            40.0,
+            1.2,
+            -323.5863091
+          ],
+          "label": "Japanese garden"
+        },
+        "terraces": {
+          "p": [
+            104.0,
+            2.4,
+            -304.2063091
+          ],
+          "t": [
+            104.0,
+            1.1,
+            -327.9063091
+          ],
+          "label": "Water terraces"
+        },
+        "quarry": {
+          "p": [
+            149.3504,
+            1.7,
+            -302.65427071042
+          ],
+          "t": [
+            168.0,
+            1.0,
+            -315.9063091
+          ],
+          "label": "Quarry garden"
+        },
+        "runnel": {
+          "p": [
+            108.44,
+            1.7,
+            -53.8
+          ],
+          "t": [
+            108.44,
+            0.8,
+            -95.19999999999999
+          ],
+          "label": "Hall runnel"
+        },
+        "stage": {
+          "p": [
+            242.0,
+            1.7,
+            -210.60721039999999
+          ],
+          "t": [
+            264.0,
+            4.8,
+            -176.60721039999999
+          ],
+          "label": "Outdoor stage"
+        }
+      },
+      "downloads": {
+        "ifc": "option-01.ifc",
+        "blend": "option-01.blend",
+        "pdf": "option-01-dimensions.pdf",
+        "dxf": "option-01-plan.dxf"
+      },
+      "render": "option-01-preview.png",
+      "source_layout": "G1",
+      "model_sha256": "fbb0ae8be56197aba911678b8a963f9ef44e856a84919263ec3e78a20688458b",
+      "renders": [
+        {
+          "file": "option-01-preview.png",
+          "label": "Whole campus"
+        },
+        {
+          "file": "option-01-arrival.png",
+          "label": "Arrival at human height"
+        },
+        {
+          "file": "option-01-gardens.png",
+          "label": "Japanese garden"
+        },
+        {
+          "file": "option-01-stage.png",
+          "label": "Outdoor stage"
+        }
+      ]
+    },
+    {
+      "id": "option-02",
+      "title": "Northlight / Garden Hinge",
+      "design": "Turned event hall creates a hospitality hinge; timber-grid garage sits beside the entrance.",
+      "parking": {
+        "strategy": "garage",
+        "garage_spaces": 1500,
+        "surface_spaces": 0
+      },
+      "model": "option-02.glb",
+      "facts": {
+        "building_area_sf": 200000,
+        "site_area_acres": 44.03417897744886,
+        "main_halls": 2,
+        "parking_structures": 1,
+        "footprint_acres": 4.591368227731864,
+        "outdoor_acres": 30,
+        "pickleball_total": 24,
+        "clear_height_ft": 37,
+        "structural_grid_span_ft": 150
+      },
+      "views": {
+        "overview": {
+          "p": [
+            660.0,
+            390,
+            292.5
+          ],
+          "t": [
+            180.0,
+            0,
+            -247.5
+          ],
+          "label": "Whole campus"
+        },
+        "sports": {
+          "p": [
+            182.72,
+            95,
+            63.540000000000006
+          ],
+          "t": [
+            57.72,
+            7,
+            -71.46
+          ],
+          "label": "sports hall exterior"
+        },
+        "events": {
+          "p": [
+            291.24,
+            95,
+            42.28
+          ],
+          "t": [
+            166.24,
+            7,
+            -92.72
+          ],
+          "label": "events hall exterior"
+        },
+        "arrival": {
+          "p": [
+            -18.0,
+            1.7,
+            -8.66
+          ],
+          "t": [
+            34.86,
+            11,
+            -56.22
+          ],
+          "label": "Arrival at human height"
+        },
+        "garage": {
+          "p": [
+            426.0,
+            85,
+            36.0
+          ],
+          "t": [
+            296.0,
+            8,
+            -89.0
+          ],
+          "label": "Garage exterior"
+        },
+        "gardens": {
+          "p": [
+            21.0,
+            1.7,
+            -308.468304
+          ],
+          "t": [
+            42.0,
+            1.2,
+            -329.148304
+          ],
+          "label": "Japanese garden"
+        },
+        "terraces": {
+          "p": [
+            106.0,
+            2.4,
+            -309.768304
+          ],
+          "t": [
+            106.0,
+            1.1,
+            -333.468304
+          ],
+          "label": "Water terraces"
+        },
+        "quarry": {
+          "p": [
+            151.3504,
+            1.7,
+            -307.598304
+          ],
+          "t": [
+            170.0,
+            1.0,
+            -321.468304
+          ],
+          "label": "Quarry garden"
+        },
+        "runnel": {
+          "p": [
+            109.44,
+            1.7,
+            -57.629999999999995
+          ],
+          "t": [
+            109.44,
+            0.8,
+            -99.03
+          ],
+          "label": "Hall runnel"
+        },
+        "stage": {
+          "p": [
+            248.0,
+            1.7,
+            -216.7619648
+          ],
+          "t": [
+            270.0,
+            4.8,
+            -182.7619648
+          ],
+          "label": "Outdoor stage"
+        }
+      },
+      "downloads": {
+        "ifc": "option-02.ifc",
+        "blend": "option-02.blend",
+        "pdf": "option-02-dimensions.pdf",
+        "dxf": "option-02-plan.dxf"
+      },
+      "render": "option-02-preview.png",
+      "source_layout": "G2",
+      "model_sha256": "06b565851835c67ecc898640948e4fda1751f1c929f895995ed89e39377c169e",
+      "renders": [
+        {
+          "file": "option-02-preview.png",
+          "label": "Whole campus"
+        },
+        {
+          "file": "option-02-arrival.png",
+          "label": "Arrival at human height"
+        },
+        {
+          "file": "option-02-gardens.png",
+          "label": "Japanese garden"
+        },
+        {
+          "file": "option-02-stage.png",
+          "label": "Outdoor stage"
+        }
+      ]
+    },
+    {
+      "id": "option-03",
+      "title": "Bowstring / Terraced Park",
+      "design": "Stacked full pitches free a broad quarry-and-water court beside a compact event bowl.",
+      "parking": {
+        "strategy": "garage",
+        "garage_spaces": 1500,
+        "surface_spaces": 0
+      },
+      "model": "option-03.glb",
+      "facts": {
+        "building_area_sf": 200000,
+        "site_area_acres": 43.22595765071254,
+        "main_halls": 2,
+        "parking_structures": 1,
+        "footprint_acres": 4.591368227731864,
+        "outdoor_acres": 30,
+        "pickleball_total": 24,
+        "clear_height_ft": 37,
+        "structural_grid_span_ft": 150
+      },
+      "views": {
+        "overview": {
+          "p": [
+            660.0,
+            390,
+            285.0
+          ],
+          "t": [
+            180.0,
+            0,
+            -255.0
+          ],
+          "label": "Whole campus"
+        },
+        "sports": {
+          "p": [
+            180.72,
+            95,
+            54.2
+          ],
+          "t": [
+            55.72,
+            7,
+            -80.8
+          ],
+          "label": "sports hall exterior"
+        },
+        "events": {
+          "p": [
+            282.72,
+            95,
+            54.2
+          ],
+          "t": [
+            157.72,
+            7,
+            -80.8
+          ],
+          "label": "events hall exterior"
+        },
+        "arrival": {
+          "p": [
+            -20.0,
+            1.7,
+            -18.0
+          ],
+          "t": [
+            32.86,
+            11,
+            -65.56
+          ],
+          "label": "Arrival at human height"
+        },
+        "garage": {
+          "p": [
+            408.0,
+            85,
+            35.0
+          ],
+          "t": [
+            278.0,
+            8,
+            -90.0
+          ],
+          "label": "Garage exterior"
+        },
+        "gardens": {
+          "p": [
+            138.0,
+            1.7,
+            -175.63198998588237
+          ],
+          "t": [
+            159.0,
+            1.2,
+            -196.31198998588238
+          ],
+          "label": "Japanese garden"
+        },
+        "terraces": {
+          "p": [
+            159.0,
+            2.4,
+            -248.347103322353
+          ],
+          "t": [
+            159.0,
+            1.1,
+            -272.047103322353
+          ],
+          "label": "Water terraces"
+        },
+        "quarry": {
+          "p": [
+            138.602,
+            1.7,
+            -389.00732999529407
+          ],
+          "t": [
+            159.0,
+            1.0,
+            -402.8773299952941
+          ],
+          "label": "Quarry garden"
+        },
+        "runnel": {
+          "p": [
+            106.72,
+            1.7,
+            -53.8
+          ],
+          "t": [
+            106.72,
+            0.8,
+            -95.19999999999999
+          ],
+          "label": "Hall runnel"
+        },
+        "stage": {
+          "p": [
+            228.0,
+            1.7,
+            -211.92443331764707
+          ],
+          "t": [
+            250.0,
+            4.8,
+            -177.92443331764707
+          ],
+          "label": "Outdoor stage"
+        }
+      },
+      "downloads": {
+        "ifc": "option-03.ifc",
+        "blend": "option-03.blend",
+        "pdf": "option-03-dimensions.pdf",
+        "dxf": "option-03-plan.dxf"
+      },
+      "render": "option-03-preview.png",
+      "source_layout": "G3",
+      "model_sha256": "dcc6d9233ad768c4ad467de513cb2147fe9d8e08b415675a03ed11d4d6f817c6",
+      "renders": [
+        {
+          "file": "option-03-preview.png",
+          "label": "Whole campus"
+        },
+        {
+          "file": "option-03-arrival.png",
+          "label": "Arrival at human height"
+        },
+        {
+          "file": "option-03-gardens.png",
+          "label": "Japanese garden"
+        },
+        {
+          "file": "option-03-stage.png",
+          "label": "Outdoor stage"
+        }
+      ]
+    },
+    {
+      "id": "option-04",
+      "title": "Solar Bars / Southern Parking",
+      "design": "Two transverse hall bars face the activity park; one southern surface field has a compact east annex.",
+      "parking": {
+        "strategy": "surface",
+        "garage_spaces": 0,
+        "surface_spaces": 1500
+      },
+      "model": "option-04.glb",
+      "facts": {
+        "building_area_sf": 200000,
+        "site_area_acres": 50.37687990894806,
+        "main_halls": 2,
+        "parking_structures": 0,
+        "footprint_acres": 4.591368227731864,
+        "outdoor_acres": 30,
+        "pickleball_total": 24,
+        "clear_height_ft": 37,
+        "structural_grid_span_ft": 150
+      },
+      "views": {
+        "overview": {
+          "p": [
+            690.0,
+            390,
+            297.3
+          ],
+          "t": [
+            210.0,
+            0,
+            -242.7
+          ],
+          "label": "Whole campus"
+        },
+        "sports": {
+          "p": [
+            187.8,
+            95,
+            -6.719999999999999
+          ],
+          "t": [
+            62.8,
+            7,
+            -141.72
+          ],
+          "label": "sports hall exterior"
+        },
+        "events": {
+          "p": [
+            299.8,
+            95,
+            -6.719999999999999
+          ],
+          "t": [
+            174.8,
+            7,
+            -141.72
+          ],
+          "label": "events hall exterior"
+        },
+        "arrival": {
+          "p": [
+            125.6,
+            1.7,
+            -66.0
+          ],
+          "t": [
+            78.03999999999999,
+            11,
+            -118.86
+          ],
+          "label": "Arrival at human height"
+        },
+        "gardens": {
+          "p": [
+            268.88,
+            1.7,
+            -366.60412022857145
+          ],
+          "t": [
+            288.0,
+            1.2,
+            -387.28412022857145
+          ],
+          "label": "Japanese garden"
+        },
+        "terraces": {
+          "p": [
+            344.0,
+            2.4,
+            -367.90412022857146
+          ],
+          "t": [
+            344.0,
+            1.1,
+            -391.60412022857145
+          ],
+          "label": "Water terraces"
+        },
+        "quarry": {
+          "p": [
+            271.6816,
+            1.7,
+            -436.26470674285713
+          ],
+          "t": [
+            288.0,
+            1.0,
+            -450.13470674285713
+          ],
+          "label": "Quarry garden"
+        },
+        "runnel": {
+          "p": [
+            118.8,
+            1.7,
+            -114.72
+          ],
+          "t": [
+            118.8,
+            0.8,
+            -156.12
+          ],
+          "label": "Hall runnel"
+        },
+        "stage": {
+          "p": [
+            294.0,
+            1.7,
+            -253.33882697142857
+          ],
+          "t": [
+            316.0,
+            4.8,
+            -219.33882697142857
+          ],
+          "label": "Outdoor stage"
+        }
+      },
+      "downloads": {
+        "ifc": "option-04.ifc",
+        "blend": "option-04.blend",
+        "pdf": "option-04-dimensions.pdf",
+        "dxf": "option-04-plan.dxf"
+      },
+      "render": "option-04-preview.png",
+      "source_layout": "S1",
+      "model_sha256": "e3e4052e591d555f4bec67e1f85d84cebc299559973ecbcd18169d1fde403d22",
+      "renders": [
+        {
+          "file": "option-04-preview.png",
+          "label": "Whole campus"
+        },
+        {
+          "file": "option-04-arrival.png",
+          "label": "Arrival at human height"
+        },
+        {
+          "file": "option-04-gardens.png",
+          "label": "Japanese garden"
+        },
+        {
+          "file": "option-04-stage.png",
+          "label": "Outdoor stage"
+        }
+      ]
+    },
+    {
+      "id": "option-05",
+      "title": "Butterfly / Central Sports Court",
+      "design": "A central outdoor sports cluster faces both halls; gardens and water occupy both park wings.",
+      "parking": {
+        "strategy": "surface",
+        "garage_spaces": 0,
+        "surface_spaces": 1500
+      },
+      "model": "option-05.glb",
+      "facts": {
+        "building_area_sf": 200000,
+        "site_area_acres": 49.4704973697265,
+        "main_halls": 2,
+        "parking_structures": 0,
+        "footprint_acres": 4.591368227731864,
+        "outdoor_acres": 30,
+        "pickleball_total": 24,
+        "clear_height_ft": 37,
+        "structural_grid_span_ft": 150
+      },
+      "views": {
+        "overview": {
+          "p": [
+            700.0,
+            390,
+            312.5
+          ],
+          "t": [
+            220.0,
+            0,
+            -227.5
+          ],
+          "label": "Whole campus"
+        },
+        "sports": {
+          "p": [
+            180.72,
+            95,
+            14.200000000000003
+          ],
+          "t": [
+            55.72,
+            7,
+            -120.8
+          ],
+          "label": "sports hall exterior"
+        },
+        "events": {
+          "p": [
+            282.72,
+            95,
+            14.200000000000003
+          ],
+          "t": [
+            157.72,
+            7,
+            -120.8
+          ],
+          "label": "events hall exterior"
+        },
+        "arrival": {
+          "p": [
+            -20.0,
+            1.7,
+            -58.0
+          ],
+          "t": [
+            32.86,
+            11,
+            -105.56
+          ],
+          "label": "Arrival at human height"
+        },
+        "quarry": {
+          "p": [
+            330.7246,
+            1.7,
+            -199.6982248
+          ],
+          "t": [
+            348.5,
+            1.0,
+            -213.5682248
+          ],
+          "label": "Quarry garden"
+        },
+        "gardens": {
+          "p": [
+            328.03,
+            1.7,
+            -407.5097464
+          ],
+          "t": [
+            348.5,
+            1.2,
+            -428.1897464
+          ],
+          "label": "Japanese garden"
+        },
+        "terraces": {
+          "p": [
+            409.5,
+            2.4,
+            -408.8097464
+          ],
+          "t": [
+            409.5,
+            1.1,
+            -432.5097464
+          ],
+          "label": "Water terraces"
+        },
+        "runnel": {
+          "p": [
+            106.72,
+            1.7,
+            -93.8
+          ],
+          "t": [
+            106.72,
+            0.8,
+            -135.2
+          ],
+          "label": "Hall runnel"
+        },
+        "stage": {
+          "p": [
+            44.0,
+            1.7,
+            -238.07797119999998
+          ],
+          "t": [
+            66.0,
+            4.8,
+            -204.07797119999998
+          ],
+          "label": "Outdoor stage"
+        }
+      },
+      "downloads": {
+        "ifc": "option-05.ifc",
+        "blend": "option-05.blend",
+        "pdf": "option-05-dimensions.pdf",
+        "dxf": "option-05-plan.dxf"
+      },
+      "render": "option-05-preview.png",
+      "source_layout": "S2",
+      "model_sha256": "cfed40f90cacad0a9d1cf18a03f3e3170ce67147b75d0321b7fc7167df06a3da",
+      "renders": [
+        {
+          "file": "option-05-preview.png",
+          "label": "Whole campus"
+        },
+        {
+          "file": "option-05-arrival.png",
+          "label": "Arrival at human height"
+        },
+        {
+          "file": "option-05-gardens.png",
+          "label": "Japanese garden"
+        },
+        {
+          "file": "option-05-stage.png",
+          "label": "Outdoor stage"
+        }
+      ]
+    },
+    {
+      "id": "option-06",
+      "title": "Clerestory / Ridgeline Park",
+      "design": "Offset halls and a narrow western site arm form a ridgeline composition; courts hug the stacked pitches.",
+      "parking": {
+        "strategy": "surface",
+        "garage_spaces": 0,
+        "surface_spaces": 1500
+      },
+      "model": "option-06.glb",
+      "facts": {
+        "building_area_sf": 200000,
+        "site_area_acres": 48.60569886908573,
+        "main_halls": 2,
+        "parking_structures": 0,
+        "footprint_acres": 4.591368227731864,
+        "outdoor_acres": 30,
+        "pickleball_total": 24,
+        "clear_height_ft": 37,
+        "structural_grid_span_ft": 150
+      },
+      "views": {
+        "overview": {
+          "p": [
+            680.0,
+            390,
+            290.0
+          ],
+          "t": [
+            200.0,
+            0,
+            -250.0
+          ],
+          "label": "Whole campus"
+        },
+        "sports": {
+          "p": [
+            290.72,
+            95,
+            -1.8000000000000114
+          ],
+          "t": [
+            165.72,
+            7,
+            -136.8
+          ],
+          "label": "sports hall exterior"
+        },
+        "events": {
+          "p": [
+            393.72,
+            95,
+            -5.800000000000011
+          ],
+          "t": [
+            268.72,
+            7,
+            -140.8
+          ],
+          "label": "events hall exterior"
+        },
+        "arrival": {
+          "p": [
+            90.0,
+            1.7,
+            -74.0
+          ],
+          "t": [
+            142.86,
+            11,
+            -121.56
+          ],
+          "label": "Arrival at human height"
+        },
+        "quarry": {
+          "p": [
+            146.1848,
+            1.7,
+            -213.98639891866878
+          ],
+          "t": [
+            166.0,
+            1.0,
+            -226.83719148799997
+          ],
+          "label": "Quarry garden"
+        },
+        "gardens": {
+          "p": [
+            145.0,
+            1.7,
+            -274.540037824
+          ],
+          "t": [
+            166.0,
+            1.2,
+            -295.22003782400003
+          ],
+          "label": "Japanese garden"
+        },
+        "terraces": {
+          "p": [
+            234.0,
+            2.4,
+            -275.84003782400004
+          ],
+          "t": [
+            234.0,
+            1.1,
+            -299.540037824
+          ],
+          "label": "Water terraces"
+        },
+        "runnel": {
+          "p": [
+            217.22,
+            1.7,
+            -111.80000000000001
+          ],
+          "t": [
+            217.22,
+            0.8,
+            -153.20000000000002
+          ],
+          "label": "Hall runnel"
+        },
+        "stage": {
+          "p": [
+            54.0,
+            1.7,
+            -255.48576831999998
+          ],
+          "t": [
+            76.0,
+            4.8,
+            -221.48576831999998
+          ],
+          "label": "Outdoor stage"
+        }
+      },
+      "downloads": {
+        "ifc": "option-06.ifc",
+        "blend": "option-06.blend",
+        "pdf": "option-06-dimensions.pdf",
+        "dxf": "option-06-plan.dxf"
+      },
+      "render": "option-06-preview.png",
+      "source_layout": "S3",
+      "model_sha256": "f76466f301599a87cc8cf166516ad38532eb5389c016467afed00f83645746c1",
+      "renders": [
+        {
+          "file": "option-06-preview.png",
+          "label": "Whole campus"
+        },
+        {
+          "file": "option-06-arrival.png",
+          "label": "Arrival at human height"
+        },
+        {
+          "file": "option-06-gardens.png",
+          "label": "Japanese garden"
+        },
+        {
+          "file": "option-06-stage.png",
+          "label": "Outdoor stage"
+        }
+      ]
+    }
+  ]
+}

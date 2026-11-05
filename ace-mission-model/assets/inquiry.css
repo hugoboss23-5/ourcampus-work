@@ -1,0 +1,96 @@
+/* Ace ✳ Mission Studios — shared inquiry form
+   Used by the Contact overlay in "Ace Mission Flythrough.html" and by "Inquire.html". */
+
+.amsq{display:flex;flex-direction:column;gap:24px;max-width:760px;position:relative}
+.amsq .qrow{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:640px){
+  .amsq .qrow{grid-template-columns:1fr}
+  .amsq{gap:20px}
+  .amsq .qsend{width:100%;justify-content:center;min-height:50px}
+  .amsq .qmore summary{padding:15px 14px}
+  .amsq .qmbody{padding:22px 14px 24px}
+  .amsq-done{padding:26px 20px 24px}
+}
+
+.amsq .fld{display:flex;flex-direction:column;gap:9px;min-width:0}
+.amsq .fld>span{font:700 10.5px/1 Helvetica,'Helvetica Neue',Arial,sans-serif;letter-spacing:0;
+  text-transform:uppercase;color:#f4f2ec}
+.amsq .fld>span b{color:#fd4e45;font-weight:400;margin-left:4px}
+
+/* the three primary fields read larger */
+.amsq .fld.lg>span{font-size:11.5px;letter-spacing:.2em;color:#fff}
+.amsq .fld.lg input,.amsq .fld.lg textarea{font-size:18px;padding:16px 18px}
+.amsq .fld.lg textarea{min-height:152px}
+
+.amsq input,.amsq textarea,.amsq select{box-sizing:border-box;width:100%;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.24);border-radius:2px;
+  padding:13px 15px;color:#f4f2ec;
+  font:400 15px/1.5 Helvetica,'Helvetica Neue',Arial,sans-serif;
+  transition:border-color .2s,background .2s,box-shadow .2s}
+.amsq input:hover,.amsq textarea:hover,.amsq select:hover{border-color:rgba(255,255,255,.42)}
+.amsq input::placeholder,.amsq textarea::placeholder{color:#8b8880}
+.amsq textarea{resize:none;overflow:hidden;min-height:112px}
+.amsq select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:38px;
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' fill='none' stroke='%23f4f2ec' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 15px center}
+.amsq select option{background:#111114;color:#f4f2ec}
+.amsq input:focus,.amsq textarea:focus,.amsq select:focus{outline:none;border-color:#fd4e45;
+  background:rgba(255,255,255,.08);box-shadow:0 0 0 3px rgba(253,78,69,.18)}
+
+.amsq .fld.bad input,.amsq .fld.bad textarea,.amsq .fld.bad select{border-color:#fd4e45;
+  background:rgba(253,78,69,.07)}
+.amsq .err{display:none;font:400 11.5px/1.4 Helvetica,'Helvetica Neue',Arial,sans-serif;color:#fd4e45;font-style:normal}
+.amsq .fld.bad .err{display:block}
+
+/* project details — an obvious, collapsible panel */
+.amsq .qmore{border:1px solid rgba(255,255,255,.2);background:#0c0c0f}
+.amsq .qmore summary{display:flex;align-items:center;gap:14px;padding:17px 18px;cursor:pointer;list-style:none;
+  background:#141419;border-bottom:1px solid transparent;transition:background .2s,border-color .2s;
+  -webkit-tap-highlight-color:transparent}
+.amsq .qmore summary::-webkit-details-marker{display:none}
+.amsq .qmore summary:hover{background:#1c1c22}
+.amsq .qmore[open] summary{border-bottom-color:rgba(255,255,255,.16)}
+.amsq .qmore summary:focus-visible{outline:2px solid #fd4e45;outline-offset:-2px}
+.amsq .qmh{font:700 14px/1 Helvetica,'Helvetica Neue',Arial,sans-serif;letter-spacing:.01em;color:#f4f2ec;flex:1}
+.amsq .qreq{flex:0 0 auto;font-style:normal;font:700 10.5px/1 Helvetica,'Helvetica Neue',Arial,sans-serif;
+  letter-spacing:0;text-transform:uppercase;color:#fff}
+.amsq .qmore summary i{flex:0 0 auto;width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.3);transition:border-color .2s,background .2s}
+.amsq .qmore summary:hover i{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06)}
+.amsq .qmore summary i b{width:8px;height:8px;border-right:1.5px solid #f4f2ec;border-bottom:1.5px solid #f4f2ec;
+  transform:rotate(45deg) translate(-2px,-2px);transition:transform .3s cubic-bezier(.16,.84,.28,1)}
+.amsq .qmore[open] summary i b{transform:rotate(225deg) translate(-2px,-2px)}
+.amsq .qmbody{display:flex;flex-direction:column;gap:24px;padding:26px 18px 28px}
+.amsq .qmore.bad{border-color:rgba(253,78,69,.65)}
+.amsq .qmore.bad summary{background:rgba(253,78,69,.1)}
+
+/* honeypot — never shown to a human */
+.amsq .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;opacity:0}
+
+.amsq .qfoot{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:4px 0 0}
+.amsq .qsend{padding:15px 32px 14px;border:1px solid rgba(255,255,255,.55);background:transparent;color:#fff;
+  font:400 13px/1 Helvetica,'Helvetica Neue',Arial,sans-serif;letter-spacing:.01em;cursor:pointer;
+  min-height:46px;border-radius:0;transition:background .25s,color .25s,border-color .25s,opacity .25s}
+.amsq .qsend:hover{background:linear-gradient(100deg,#fd4e45,#f88748);border-color:transparent;color:#14173a}
+.amsq .qsend[disabled]{opacity:.5;pointer-events:none}
+.amsq .qnote{font:400 12px/1.6 Helvetica,'Helvetica Neue',Arial,sans-serif;color:#f4f2ec;margin:0}
+.amsq .qnote a{color:#f4f2ec;border-bottom:0;text-decoration:none}
+.amsq .qnote a:hover{color:#fd4e45;text-decoration:underline;text-underline-offset:3px}
+
+/* form-level status */
+.amsq .qmsg{display:none;font:400 13px/1.6 Helvetica,'Helvetica Neue',Arial,sans-serif;
+  padding:14px 16px;border:1px solid rgba(253,78,69,.5);color:#f4f2ec;background:rgba(253,78,69,.07)}
+.amsq .qmsg.on{display:block}
+.amsq .qmsg a{color:#fd4e45;text-decoration:underline}
+
+/* success state */
+.amsq-done{position:relative;padding:34px 32px 32px;background:#101013;
+  border:1px solid rgba(255,255,255,.12);max-width:760px}
+.amsq-done::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;
+  background:linear-gradient(90deg,#0034d6,#0395ca,#04d3c4,#21dd99,#b9c469,#f88748,#fd4e45,#b63574)}
+.amsq-done h4{font:700 21px/1.2 Helvetica,'Helvetica Neue',Arial,sans-serif;color:#f4f2ec;margin:0 0 10px}
+.amsq-done:focus{outline:none}
+.amsq-done:focus-visible{outline:1px solid rgba(255,255,255,.3);outline-offset:4px}
+.amsq-done p{font:400 16px/1.65 Helvetica,'Helvetica Neue',Arial,sans-serif;color:#f4f2ec;margin:0;max-width:52ch}
+.amsq-done p a{color:#f4f2ec;border-bottom:0;text-decoration:none}
+.amsq-done p a:hover{color:#fd4e45;text-decoration:underline;text-underline-offset:3px}
