@@ -128,7 +128,7 @@ function start() {
   const corners = [];
   let zoom = 1, ox = 0, oy = 0;
   function frameBox() {
-    if (phone()) return { x0: W * 0.05, x1: W * 0.95, y0: 62, y1: H - 8 };
+    if (phone()) return { x0: W * 0.07, x1: W * 0.93, y0: 66, y1: H - 26 };
     const top = copy.getBoundingClientRect().top - stage.getBoundingClientRect().top;
     return { x0: W * 0.05, x1: W * 0.975, y0: 132, y1: Math.max(260, top - 28) };
   }
