@@ -51,5 +51,5 @@ Optional: `"files": [{ "name": "...", "kind": "GLB, 2 MB", "url": "..." }]` for 
 - `projects.json`: the content.
 - `bendac/`: every Bendac version (built by `~/projects/bendac-all-versions-20261105/build.py` on
   Hugo's Mac; paths are relative so it works here and on the box).
-- `worldwide-stages-presentation/`: the investor deck PDFs and color studies.
+- Investor decks and color studies are NOT in this repo: they hold deal numbers (price, appraisal, rent roll). They live in hugo@ourcampus.live Drive, shared with the ourcampus.live domain only, and the cards link there. Anything confidential (financials, contracts, people) follows the same rule: card here, file in Drive, domain-only. Never commit it to this public repo.
 - The other folders are the original project sites; their links are shared, keep them where they are.
