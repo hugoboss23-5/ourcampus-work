@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050605">
+<title>Bendac website, every version</title>
+<link rel="icon" href="_a/icon.png">
+<style>
+@font-face{font-family:Michroma;src:url(_a/michroma-400.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Inter;src:url(_a/inter-var.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Space Mono";src:url(_a/space-mono-400.woff2) format("woff2");font-display:swap}
+
+*{box-sizing:border-box;margin:0}
+html{background:#050605;color:#fff;-webkit-text-size-adjust:100%}
+body{font:16px/1.4 Inter,-apple-system,system-ui,sans-serif;padding:0 clamp(16px,4vw,56px) 64px;max-width:1600px;margin:0 auto}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding:clamp(28px,5vw,64px) 0 clamp(24px,4vw,48px)}
+header img{height:clamp(26px,3vw,36px);width:auto;display:block;margin-bottom:22px}
+h1{font:400 clamp(30px,5.2vw,72px)/1.02 Michroma,Inter,sans-serif;letter-spacing:-.01em}
+h1 b{font-weight:400;color:#3ddc6a}
+.count{font:12px/1.5 "Space Mono",monospace;color:#9aa39c;text-transform:uppercase;letter-spacing:.08em;text-align:right;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:clamp(12px,1.6vw,22px)}
+a.tile{position:relative;display:block;color:#fff;text-decoration:none;border-radius:14px;overflow:hidden;background:#111;outline:1px solid #1d211e;outline-offset:-1px}
+a.tile img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+a.tile:hover img,a.tile:focus-visible img{transform:scale(1.035)}
+a.tile:focus-visible{outline:2px solid #3ddc6a}
+.cap{padding:14px 16px 15px;background:#0c0e0d;border-top:1px solid #1d211e;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.cap strong{font:400 clamp(15px,1.4vw,19px)/1.2 Michroma,Inter,sans-serif}
+.cap span{font:11px/1.4 "Space Mono",monospace;text-transform:uppercase;letter-spacing:.08em;color:#c9d1cb;white-space:nowrap;text-align:right}
+.cap span i{font-style:normal;color:#3ddc6a;display:block}
+.n{font-weight:400;color:#6f776f;margin-left:8px}
+.more{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:clamp(12px,1.6vw,22px);margin-top:clamp(12px,1.6vw,22px)}
+.strip{display:flex;aspect-ratio:16/10}
+.strip img{flex:1;min-width:0;width:auto!important;aspect-ratio:auto!important;height:100%;object-fit:cover}
+a.files{display:flex;flex-direction:column;justify-content:flex-end;min-height:200px;padding:20px;background:#3ddc6a;color:#041;border-radius:14px;text-decoration:none}
+a.files strong{font:400 clamp(20px,2vw,28px)/1.15 Michroma,Inter,sans-serif;color:#020}
+a.files span{font:12px/1.5 "Space Mono",monospace;text-transform:uppercase;letter-spacing:.08em;margin-top:10px}
+footer{margin-top:40px;font:12px/1.6 "Space Mono",monospace;color:#7f877f}
+@media (max-width:600px){header{flex-direction:column;align-items:flex-start}.count{text-align:left}.grid{grid-template-columns:1fr 1fr;gap:10px}a.tile img{aspect-ratio:390/640;object-position:top}.cap{flex-direction:column;align-items:flex-start;gap:6px;padding:10px 11px 12px}.cap span{text-align:left}.cap span i{display:inline;margin-right:6px}.cap strong{font-size:13px}.more{grid-template-columns:1fr;gap:10px;margin-top:10px}.strip img{aspect-ratio:auto!important}}
+</style></head><body>
+<header><div><img src="_a/logo.webp" alt="Bendac" width="992" height="302">
+<h1>Every version<br>of the <b>website.</b></h1></div>
+<p class="count">12 versions<br>Oct 27 to Nov 1, 2026<br>Tap one to open it</p></header>
+<main class="grid">
+<a class="tile" href="v1-first/" target="_blank" rel="noopener">
+<picture><source media="(max-width:600px)" srcset="thumbs/v1-first-p.webp"><img src="thumbs/v1-first-d.webp" alt="v1 First cut" loading="eager" width="1152" height="720"></picture>
+<div class="cap"><strong>First cut</strong><span><i>v1</i>Oct 27<b class="n">01</b></span></div></a>
+<a class="tile" href="v1/" target="_blank" rel="noopener">
+<picture><source media="(max-width:600px)" srcset="thumbs/v1-p.webp"><img src="thumbs/v1-d.webp" alt="v1 Live LED wall" loading="eager" width="1152" height="720"></picture>
+<div class="cap"><strong>Live LED wall</strong><span><i>v1</i>Oct 27<b class="n">02</b></span></div></a>
+<a class="tile" href="v2/" target="_blank" rel="noopener">
+<picture><source media="(max-width:600px)" srcset="thumbs/v2-p.webp"><img src="thumbs/v2-d.webp" alt="v2 Phone first" loading="eager" width="1152" height="720"></picture>
+<div class="cap"><strong>Phone first</strong><span><i>v2</i>Oct 30<b class="n">03</b></span></div></a>
+<a class="tile" href="v3-sketch-a/" target="_blank" rel="noopener">
+<picture><source media="(max-width:600px)" srcset="thumbs/v3-sketch-a-p.webp"><img src="thumbs/v3-sketch-a-d.webp" alt="v3 sketch A Step back" loading="eager" width="1152" height="720"></picture>
+<div class="cap"><strong>Step back</strong><span><i>v3 sketch A</i>Oct 31<b class="n">04</b></span></div></a>
+<a class="tile" href="v3-sketch-b/" target="_blank" rel="noopener">
+<picture><source media="(max-width:600px)" srcset="thumbs/v3-sketch-b-p.webp"><img src="thumbs/v3-sketch-b-d.webp" alt="v3 sketch B Lights on" loading="eager" width="1152" height="720"></picture>
+<div class="cap"><strong>Lights on</strong><span><i>v3 sketch B</i>Oct 31<b class="n">05</b></span></div></a>
+<a class="tile" href="v3-sketch-c/" target="_blank" rel="noopener">
+<picture><source media="(max-width:600px)" srcset="thumbs/v3-sketch-c-p.webp"><img src="thumbs/v3-sketch-c-d.webp" alt="v3 sketch C Built to fit" loading="eager" width="1152" height="720"></picture>
+<div class="cap"><strong>Built to fit</strong><span><i>v3 sketch C</i>Oct 31<b class="n">06</b></span></div></a>
+<a class="tile" href="v3-film-1/" target="_blank" rel="noopener">
+<picture><source media="(max-width:600px)" srcset="thumbs/v3-film-1-p.webp"><img src="thumbs/v3-film-1-d.webp" alt="v3 One film, first cut" loading="eager" width="1152" height="720"></picture>
+<div class="cap"><strong>One film, first cut</strong><span><i>v3</i>Oct 31<b class="n">07</b></span></div></a>
+<a class="tile" href="v3/" target="_blank" rel="noopener">
+<picture><source media="(max-width:600px)" srcset="thumbs/v3-p.webp"><img src="thumbs/v3-d.webp" alt="v3 One film" loading="eager" width="1152" height="720"></picture>
+<div class="cap"><strong>One film</strong><span><i>v3</i>Nov 1<b class="n">08</b></span></div></a>
+<a class="tile" href="v4-d1/" target="_blank" rel="noopener">
+<picture><source media="(max-width:600px)" srcset="thumbs/v4-d1-p.webp"><img src="thumbs/v4-d1-d.webp" alt="v4 D1 The website is a screen" loading="eager" width="1152" height="720"></picture>
+<div class="cap"><strong>The website is a screen</strong><span><i>v4 D1</i>Nov 1<b class="n">09</b></span></div></a>
+<a class="tile" href="v4-d2/" target="_blank" rel="noopener">
+<picture><source media="(max-width:600px)" srcset="thumbs/v4-d2-p.webp"><img src="thumbs/v4-d2-d.webp" alt="v4 D2 The perfect pixel" loading="eager" width="1152" height="720"></picture>
+<div class="cap"><strong>The perfect pixel</strong><span><i>v4 D2</i>Nov 1<b class="n">10</b></span></div></a>
+<a class="tile" href="v4-d3/" target="_blank" rel="noopener">
+<picture><source media="(max-width:600px)" srcset="thumbs/v4-d3-p.webp"><img src="thumbs/v4-d3-d.webp" alt="v4 D3 Lights on, for real" loading="eager" width="1152" height="720"></picture>
+<div class="cap"><strong>Lights on, for real</strong><span><i>v4 D3</i>Nov 1<b class="n">11</b></span></div></a>
+<a class="tile" href="v5/" target="_blank" rel="noopener">
+<picture><source media="(max-width:600px)" srcset="thumbs/v5-p.webp"><img src="thumbs/v5-d.webp" alt="v5 Daylight stadium" loading="eager" width="1152" height="720"></picture>
+<div class="cap"><strong>Daylight stadium</strong><span><i>v5</i>Nov 1<b class="n">12</b></span></div></a>
+</main>
+<section class="more">
+<a class="tile" href="renders/" target="_blank" rel="noopener"><div class="strip"><img src="thumbs/r-hero.webp" alt=""><img src="thumbs/r-t1.webp" alt=""><img src="thumbs/r-t2.webp" alt=""><img src="thumbs/r-t3.webp" alt=""><img src="thumbs/r-t5.webp" alt=""></div>
+<div class="cap"><strong>Stadium render tests</strong><span><i>Blender</i>Nov 1</span></div></a>
+<a class="files" href="https://drive.google.com/drive/folders/1uYZVKx8PQRUgV-cmFzSBIjjieYAbDCrz" target="_blank" rel="noopener"><strong>All source files</strong><span>Every version, videos and photos, zipped</span></a>
+</section>
+<footer>Each version is a full working site. Give the films a few seconds to load.</footer>
+</body></html>

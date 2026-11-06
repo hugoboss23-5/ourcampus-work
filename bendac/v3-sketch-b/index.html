@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:,">
+<title>Bendac: Lights on (sketch B)</title>
+<style>
+@font-face{font-family:Archivo;src:url(fonts/archivo-latin-var.woff2) format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:JBM;src:url(fonts/jbmono-latin-var.woff2) format('woff2');font-weight:100 800;font-display:swap}
+:root{--g:#2bea66;--ink:#eef2ee;--dim:rgba(238,242,238,.62)}
+html,body{margin:0;background:#000;color:var(--ink);-webkit-text-size-adjust:100%}
+body{font:16px/1.35 Archivo,system-ui,sans-serif;overscroll-behavior:none}
+canvas#c{position:fixed;inset:0;width:100vw;height:100vh;height:100lvh;display:block;touch-action:pan-y}
+#track{height:820vh}
+.ui{position:fixed;z-index:3;pointer-events:none}
+.mono{font-family:JBM,ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
+#brand{top:max(18px,env(safe-area-inset-top));left:20px;display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+#brand img{height:17px;width:auto;display:block}
+#brand .mono{color:var(--dim)}
+#count{top:calc(max(18px,env(safe-area-inset-top)) + 40px);right:20px;color:var(--dim);text-align:right}
+#cta{position:fixed;z-index:5;top:max(14px,env(safe-area-inset-top));right:16px;pointer-events:auto;text-decoration:none;color:#04110a;background:var(--g);border-radius:999px;padding:8px 14px 8px;font:600 13px/1 Archivo,system-ui,sans-serif;letter-spacing:.01em;transition:opacity .3s,transform .3s}
+#cta:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#start{position:relative;z-index:4;min-height:100vh;min-height:100svh;box-sizing:border-box;display:flex;align-items:flex-end;padding:120px 20px calc(max(24px,env(safe-area-inset-bottom)) + 8px);overflow:hidden}
+#start .in{position:relative;isolation:isolate}
+#start .in::before{content:'';position:absolute;z-index:-1;left:-50vw;right:-50vw;top:-150px;bottom:-200px;background:linear-gradient(rgba(3,6,4,0),rgba(3,6,4,.94) 130px,#030604 170px)}
+#start .in{width:100%;max-width:1080px;margin:0 auto}
+#start .k{color:var(--g)}
+#start h2{margin:10px 0 6px;font-size:34px;line-height:1.02;font-weight:620;letter-spacing:-.02em}
+#start .lead{margin:0 0 18px;color:var(--dim);font-size:15px;max-width:440px}
+#start ol{list-style:none;margin:0 0 20px;padding:0;border-top:1px solid rgba(238,242,238,.14)}
+#start li{display:grid;grid-template-columns:34px 1fr;gap:2px 10px;padding:10px 0;border-bottom:1px solid rgba(238,242,238,.14)}
+#start li b{grid-row:span 2;font:500 11px/1.9 JBM,ui-monospace,monospace;color:var(--g);letter-spacing:.1em}
+#start li span{font-size:17px;font-weight:560}
+#start li em{font-style:normal;color:var(--dim);font-size:13.5px}
+#start .contact{display:grid;gap:8px;font-size:17px;font-weight:540}
+#start .contact .mono{display:inline-block;width:96px;color:var(--dim);font-weight:400}
+#start .contact div{user-select:text;-webkit-user-select:text}
+#count b{color:var(--ink);font-weight:500}
+#hint{bottom:max(22px,env(safe-area-inset-bottom));left:20px;color:var(--dim);display:flex;align-items:center;gap:10px;transition:opacity .6s}
+#hint i{display:block;width:1px;height:26px;background:linear-gradient(var(--g),transparent);animation:drip 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes drip{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+#shade{position:fixed;left:0;right:0;bottom:0;height:46vh;pointer-events:none;z-index:1;background:linear-gradient(to top,rgba(4,6,5,.92),rgba(4,6,5,.7) 45%,transparent)}
+@media (min-width:900px){#shade{top:0;bottom:0;right:auto;width:46vw;height:auto;background:linear-gradient(to right,rgba(4,6,5,.85),rgba(4,6,5,.5) 60%,transparent)}}
+.lab{left:20px;bottom:calc(max(22px,env(safe-area-inset-bottom)) + 52px);max-width:310px;opacity:0;will-change:opacity,transform}
+.lab .k{color:var(--g);margin-bottom:8px}
+.lab .t{font-size:25px;line-height:1.12;font-weight:560;letter-spacing:-.01em}
+.lab .s{margin-top:9px;color:var(--dim);font-size:13.5px;line-height:1.35}
+.lab figure{margin:12px 0 0;display:flex;gap:10px;align-items:flex-end}
+.lab figure img{width:132px;height:66px;object-fit:cover;display:block;border-radius:2px;outline:1px solid rgba(255,255,255,.18)}
+.lab figcaption{color:var(--dim)}
+#end{left:20px;right:20px;bottom:calc(max(22px,env(safe-area-inset-bottom)) + 40px);opacity:0}
+#end .t{font-size:34px;line-height:1.04;font-weight:600;letter-spacing:-.02em;max-width:560px}
+#end .s{margin-top:12px;color:var(--dim);font-size:14px;max-width:420px}
+#end .k{color:var(--g);margin-bottom:10px}
+#scrim{position:fixed;left:0;right:0;bottom:0;height:52vh;z-index:2;pointer-events:none;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.5) 55%,rgba(0,0,0,.62));opacity:0}
+#lead{position:fixed;inset:0;width:100vw;height:100vh;z-index:2;pointer-events:none;overflow:visible}
+#lead line{stroke:rgba(238,242,238,.5);stroke-width:1}
+#lead circle{fill:none;stroke:var(--g);stroke-width:1.2}
+@media (min-width:900px){
+  .lab{left:48px;bottom:auto;top:50%;transform:translateY(-50%);max-width:380px}
+  .lab .t{font-size:34px}
+  .lab .s{font-size:15px}
+  .lab figure img{width:180px;height:90px}
+  #brand,#hint{left:48px}
+  #count{right:48px;top:calc(max(18px,env(safe-area-inset-top)) + 46px)}
+  #cta{right:44px;top:22px;font-size:14px;padding:10px 18px}
+  #start{padding:160px 48px 64px}
+  #start .in{display:grid;grid-template-columns:1fr 1fr;gap:24px 72px;align-items:end}
+  #start h2{font-size:64px}
+  #start .lead{font-size:17px}
+  #start ol{grid-row:span 2}
+  #start li span{font-size:20px}
+  #end{left:48px;bottom:64px}
+  #end .t{font-size:58px}
+  #end .s{font-size:16px}
+}
+#fallback{display:none;position:fixed;inset:0;align-items:center;justify-content:center;padding:32px;text-align:center;color:var(--dim)}
+</style>
+</head>
+<body>
+<canvas id="c" aria-label="A dark stadium at night. Bendac LED screens switch on one at a time as you scroll."></canvas>
+<svg id="lead" aria-hidden="true"><line id="ll" x1="0" y1="0" x2="0" y2="0" opacity="0"/><circle id="lc" r="5" cx="-20" cy="-20" opacity="0"/></svg>
+<div id="scrim"></div>
+<div id="track"></div>
+
+<div id="shade" aria-hidden="true"></div>
+<div class="ui" id="brand"><img src="media/logo-bendac-white.webp" alt="Bendac"><span class="mono">The Perfect Pixel People</span></div>
+<div class="ui mono" id="count"><b id="cn">01</b> / 03</div>
+<a id="cta" href="#start">Start a project</a>
+<div class="ui mono" id="hint"><i></i>Scroll to switch on</div>
+
+<div class="ui lab" id="l1" data-anchor="spark">
+  <div class="k mono">01 &nbsp;One pixel</div>
+  <div class="t">One of the 250M+ pixels Bendac have installed.</div>
+</div>
+<div class="ui lab" id="l2" data-anchor="screen">
+  <div class="k mono">02 &nbsp;Plymouth Argyle, Home Park</div>
+  <div class="t">A 45 sqm big screen.</div>
+  <div class="s">On screen: Home Park itself, from Bendac's own film.</div>
+</div>
+<div class="ui lab" id="l3" data-anchor="ribbon">
+  <div class="k mono">03 &nbsp;IMPAKT perimeter, AFC Wimbledon</div>
+  <div class="t">Pitchside LED, up to 8,000 nits.</div>
+  <figure><img src="media/plough-lane.jpg" alt="IMPAKT perimeter screens at Plough Lane, AFC Wimbledon"><figcaption class="mono">Plough Lane,<br>from Bendac's IMPAKT page</figcaption></figure>
+</div>
+<div class="ui" id="end">
+  <div class="k mono">Bendac &nbsp;·&nbsp; 25+ years of LED experience</div>
+  <div class="t">Premium LED screen providers.</div>
+  <div class="s">For sport, offices, retail, leisure and education.</div>
+</div>
+<section id="start" aria-labelledby="start-h">
+  <div class="in">
+    <div>
+      <div class="k mono">Start a project</div>
+      <h2 id="start-h">Get a free site survey.</h2>
+      <p class="lead">From conceptual design and planning, through to installation and commissioning.</p>
+    </div>
+    <ol>
+      <li><b>01</b><span>Free site survey</span><em>At no additional charge.</em></li>
+      <li><b>02</b><span>Design and planning</span><em>By Bendac's in-house experts.</em></li>
+      <li><b>03</b><span>Installation and commissioning</span><em>A full turnkey solution.</em></li>
+      <li><b>04</b><span>In-house after-care</span><em>By Bendac's in-house after-care team.</em></li>
+    </ol>
+    <div class="contact">
+      <div><span class="mono">Call</span>01225 698 188</div>
+      <div><span class="mono">Email</span>info@bendac.tech</div>
+      <div><span class="mono">Head office</span>Trowbridge, BA14 0XG</div>
+    </div>
+  </div>
+</section>
+<div id="fallback">This sketch needs WebGL. Bendac: premium LED screen providers.</div>
+
+<video id="v" src="media/venue.mp4" poster="media/venue-poster.jpg" muted playsinline webkit-playsinline loop autoplay preload="auto" style="display:none"></video>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+<script type="module" src="main.js"></script>
+</body>
+</html>

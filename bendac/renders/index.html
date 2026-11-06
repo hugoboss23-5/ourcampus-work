@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050605">
+<title>Bendac stadium render tests</title>
+<link rel="icon" href="../_a/icon.png">
+<style>
+@font-face{font-family:Michroma;src:url(../_a/michroma-400.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Inter;src:url(../_a/inter-var.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Space Mono";src:url(../_a/space-mono-400.woff2) format("woff2");font-display:swap}
+
+*{box-sizing:border-box;margin:0}
+html{background:#050605;color:#fff;-webkit-text-size-adjust:100%}
+body{font:16px/1.4 Inter,-apple-system,system-ui,sans-serif;padding:0 clamp(16px,4vw,56px) 64px;max-width:1600px;margin:0 auto}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding:clamp(28px,5vw,64px) 0 clamp(24px,4vw,48px)}
+header img{height:clamp(26px,3vw,36px);width:auto;display:block;margin-bottom:22px}
+h1{font:400 clamp(30px,5.2vw,72px)/1.02 Michroma,Inter,sans-serif;letter-spacing:-.01em}
+h1 b{font-weight:400;color:#3ddc6a}
+.count{font:12px/1.5 "Space Mono",monospace;color:#9aa39c;text-transform:uppercase;letter-spacing:.08em;text-align:right;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:clamp(12px,1.6vw,22px)}
+a.tile{position:relative;display:block;color:#fff;text-decoration:none;border-radius:14px;overflow:hidden;background:#111;outline:1px solid #1d211e;outline-offset:-1px}
+a.tile img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+a.tile:hover img,a.tile:focus-visible img{transform:scale(1.035)}
+a.tile:focus-visible{outline:2px solid #3ddc6a}
+.cap{padding:14px 16px 15px;background:#0c0e0d;border-top:1px solid #1d211e;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.cap strong{font:400 clamp(15px,1.4vw,19px)/1.2 Michroma,Inter,sans-serif}
+.cap span{font:11px/1.4 "Space Mono",monospace;text-transform:uppercase;letter-spacing:.08em;color:#c9d1cb;white-space:nowrap;text-align:right}
+.cap span i{font-style:normal;color:#3ddc6a;display:block}
+.n{font-weight:400;color:#6f776f;margin-left:8px}
+.more{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:clamp(12px,1.6vw,22px);margin-top:clamp(12px,1.6vw,22px)}
+.strip{display:flex;aspect-ratio:16/10}
+.strip img{flex:1;min-width:0;width:auto!important;aspect-ratio:auto!important;height:100%;object-fit:cover}
+a.files{display:flex;flex-direction:column;justify-content:flex-end;min-height:200px;padding:20px;background:#3ddc6a;color:#041;border-radius:14px;text-decoration:none}
+a.files strong{font:400 clamp(20px,2vw,28px)/1.15 Michroma,Inter,sans-serif;color:#020}
+a.files span{font:12px/1.5 "Space Mono",monospace;text-transform:uppercase;letter-spacing:.08em;margin-top:10px}
+footer{margin-top:40px;font:12px/1.6 "Space Mono",monospace;color:#7f877f}
+@media (max-width:600px){header{flex-direction:column;align-items:flex-start}.count{text-align:left}.grid{grid-template-columns:1fr 1fr;gap:10px}a.tile img{aspect-ratio:390/640;object-position:top}.cap{flex-direction:column;align-items:flex-start;gap:6px;padding:10px 11px 12px}.cap span{text-align:left}.cap span i{display:inline;margin-right:6px}.cap strong{font-size:13px}.more{grid-template-columns:1fr;gap:10px;margin-top:10px}.strip img{aspect-ratio:auto!important}}
+</style></head><body>
+<header><div><img src="../_a/logo.webp" alt="Bendac" width="992" height="302">
+<h1>Stadium <b>render tests.</b></h1></div><p class="count">Blender, Nov 1, 2026<br><a href="../" style="color:#3ddc6a">All versions</a></p></header>
+<main><img src="hero.jpg" alt="Stadium render hero" loading="lazy" style="display:block;width:100%;max-width:540px;margin:0 auto 18px;border-radius:12px">
+<img src="t1.jpg" alt="Stadium render t1" loading="lazy" style="display:block;width:100%;max-width:540px;margin:0 auto 18px;border-radius:12px">
+<img src="t2.jpg" alt="Stadium render t2" loading="lazy" style="display:block;width:100%;max-width:540px;margin:0 auto 18px;border-radius:12px">
+<img src="t3.jpg" alt="Stadium render t3" loading="lazy" style="display:block;width:100%;max-width:540px;margin:0 auto 18px;border-radius:12px">
+<img src="t5.jpg" alt="Stadium render t5" loading="lazy" style="display:block;width:100%;max-width:540px;margin:0 auto 18px;border-radius:12px"></main>
+</body></html>

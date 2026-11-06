@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bendac · The perfect pixel</title>
+<link rel="icon" href="data:,">
+<style>
+@font-face{font-family:Inter;src:url(fonts/inter-var.woff2) format('woff2');font-weight:100 900;font-display:block}
+@font-face{font-family:Michroma;src:url(fonts/michroma-400.woff2) format('woff2');font-weight:400;font-display:block}
+@font-face{font-family:Mono;src:url(fonts/space-mono-400.woff2) format('woff2');font-weight:400;font-display:block}
+@font-face{font-family:Mono;src:url(fonts/space-mono-700.woff2) format('woff2');font-weight:700;font-display:block}
+:root{--ink:#eef0ee;--dim:rgba(238,240,238,.62);--mute:rgba(238,240,238,.42);--g:#2bea66;--pad:clamp(18px,4.6vw,44px);--top:calc(env(safe-area-inset-top) + 18px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#050506;color:var(--ink);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+body{font-family:Inter,system-ui,sans-serif;overscroll-behavior-y:none}
+#gl{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;z-index:0}
+#track{position:relative;height:520vh;z-index:1;pointer-events:none}
+.ui{position:fixed;z-index:3;pointer-events:none}
+.ui a,.ui button{pointer-events:auto}
+.mono{font-family:Mono,ui-monospace,monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+/* chrome */
+#bar{left:var(--pad);right:var(--pad);top:var(--top);display:flex;align-items:center;justify-content:space-between}
+#bar img{height:19px;width:auto;display:block;opacity:.95}
+#bar .r{display:flex;align-items:center;gap:14px}
+#chap{min-width:7.5em;text-align:right;transition:opacity .4s}
+.pill{font-family:Mono,monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#050506;background:var(--ink);border:0;border-radius:99px;padding:9px 14px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.pill:hover{background:#fff}
+/* hero words */
+#hero{left:var(--pad);right:var(--pad);top:calc(var(--top) + 58px)}
+#hero .k{margin-bottom:14px}
+h1{font-family:Michroma,sans-serif;font-weight:400;font-size:clamp(25px,7.3vw,62px);line-height:1.12;letter-spacing:-.005em;text-transform:uppercase}
+#hero p{margin-top:14px;font-size:15px;line-height:1.45;color:var(--dim);max-width:24em}
+#cues{left:var(--pad);right:var(--pad);bottom:calc(env(safe-area-inset-bottom) + 18px);display:flex;justify-content:space-between;align-items:flex-end}
+#cues .sc{display:flex;align-items:center;gap:10px}
+#cues .line{width:1px;height:34px;background:linear-gradient(var(--ink),transparent);animation:drip 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes drip{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+#count{position:fixed;left:50%;white-space:nowrap;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + 64px);z-index:3;pointer-events:none;color:var(--ink);transition:opacity .6s}
+#count b{font-weight:700;color:var(--g)}
+/* chapter 2 */
+#c2{left:var(--pad);top:calc(var(--top) + 58px);max-width:min(520px,calc(100vw - 2 * var(--pad)))}
+h2{font-family:Michroma,sans-serif;font-weight:400;font-size:clamp(20px,5.4vw,40px);line-height:1.16;text-transform:uppercase}
+.sub{margin-top:12px;font-size:14px;line-height:1.45;color:var(--dim)}
+#specs{left:var(--pad);right:var(--pad);bottom:calc(env(safe-area-inset-bottom) + 18px);display:flex;flex-wrap:wrap;gap:8px 18px}
+#specs div b{display:block;font-family:Michroma,sans-serif;font-weight:400;font-size:15px;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:4px}
+.tag{position:fixed;left:0;top:0;z-index:3;pointer-events:none;display:flex;align-items:center;gap:8px;white-space:nowrap;will-change:transform;opacity:0}
+.tag i{display:block;width:26px;height:1px;background:rgba(238,240,238,.55)}
+.tag span{color:var(--ink)}
+.tag em{font-style:normal;color:var(--g);margin-right:6px}
+/* chapter 3 */
+#c3{left:var(--pad);right:var(--pad);top:calc(var(--top) + 58px)}
+#c3 h2{font-size:clamp(22px,6vw,46px)}
+/* chapter 4 */
+#c4{left:var(--pad);right:var(--pad);bottom:calc(env(safe-area-inset-bottom) + 22px)}
+#c4 .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{pointer-events:auto;display:inline-flex;align-items:center;gap:10px;font-family:Inter,sans-serif;font-size:15px;font-weight:500;color:#050506;background:var(--ink);border-radius:99px;padding:14px 20px;text-decoration:none}
+.btn.o{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px rgba(238,240,238,.38)}
+.btn:hover{background:#fff;color:#050506}
+#c4 .mono{margin-top:16px}
+.fade{opacity:0;transition:opacity .5s ease,transform .7s cubic-bezier(.2,.7,.2,1);transform:translateY(10px)}
+.fade.on{opacity:1;transform:none}
+.fade.on a,.fade.on button{pointer-events:auto}
+.fade:not(.on) a,.fade:not(.on) button{pointer-events:none}
+#nogl{display:none;position:fixed;inset:0;z-index:9;align-items:center;justify-content:center;text-align:center;padding:30px}
+@media (min-width:900px){
+  #hero{top:auto;bottom:calc(var(--top) + 84px);max-width:560px}
+  h1{font-size:clamp(34px,3.6vw,58px)}
+  #c2{top:auto;bottom:118px;max-width:430px}
+  #c3{top:auto;bottom:calc(var(--top) + 40px);right:auto;max-width:520px}
+  #c4{left:auto;right:var(--pad);bottom:calc(var(--top) + 30px);max-width:470px}
+  #specs{left:auto;right:var(--pad);width:auto;justify-content:flex-end;gap:10px 30px}
+}
+@media (max-height:700px) and (max-width:899px){
+  #hero{top:calc(var(--top) + 46px)}
+  h1{font-size:clamp(22px,6.4vw,40px)}
+  #hero p{font-size:13.5px;margin-top:10px}
+  #hero .k{margin-bottom:10px}
+  #c2,#c3{top:calc(var(--top) + 46px)}
+  h2{font-size:clamp(18px,5vw,30px)}
+  .sub{font-size:13px;margin-top:8px}
+  #specs div b{font-size:13px}
+  #cues .line{height:24px}
+  .btn{padding:12px 16px;font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){#cues .line{animation:none}.fade{transition:opacity .2s}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="A Bendac LED cabinet, lit with Bendac footage"></canvas>
+<div id="track"></div>
+
+<div class="ui" id="bar"><img src="media/logo-bendac-white.webp" alt="Bendac"><div class="r"><span class="mono" id="chap">01 · The pixel</span><button class="pill" id="go">Start a project</button></div></div>
+
+<div class="ui fade" id="hero">
+  <div class="mono k">Bendac · Premium LED screens</div>
+  <h1>The perfect<br>pixel people.</h1>
+  <p>LED screens, designed in-house, installed and looked after by us.</p>
+</div>
+<div class="ui fade" id="cues"><div class="sc mono"><span class="line"></span>Scroll to open it</div><div class="mono" id="turn">Drag to turn</div></div>
+<div class="mono" id="count"><b id="cn">0</b> / 16,384 pixels on</div>
+
+<div class="ui fade" id="c2">
+  <div class="mono k" style="margin-bottom:12px">Inside one cabinet</div>
+  <h2>Every layer,<br>built to last.</h2>
+</div>
+<div class="ui fade" id="specs">
+  <div class="mono"><b>0.4 to 10 mm</b>pixel pitch</div>
+  <div class="mono"><b>7,680 Hz</b>refresh, up to</div>
+  <div class="mono"><b>300 fps</b>frame rate, up to</div>
+</div>
+<div class="tag mono" id="t0"><i></i><span><em>01</em>Mask</span></div>
+<div class="tag mono" id="t1"><i></i><span><em>02</em>Diodes</span></div>
+<div class="tag mono" id="t2"><i></i><span><em>03</em>Die-cast cabinet</span></div>
+<div class="tag mono" id="t3"><i></i><span><em>04</em>Bendac processing</span></div>
+
+<div class="ui fade" id="c3">
+  <div class="mono k" style="margin-bottom:12px">One cabinet, then a wall</div>
+  <h2>250M+ pixels<br>installed.</h2>
+  <p class="sub">25+ years · 7 industry awards · global service</p>
+</div>
+
+<div class="ui fade" id="c4">
+  <h2>Start a project.</h2>
+  <p class="sub">From design and planning, through to installation and commissioning.</p>
+  <div class="row"><a class="btn" href="tel:+441225698188">Call 01225 698 188</a><a class="btn o" href="mailto:info@bendac.tech?subject=New%20LED%20screen%20project">info@bendac.tech</a></div>
+  <div class="mono">Free site survey · Trowbridge · London · Bolton</div>
+</div>
+
+<div id="nogl" class="mono">This page needs WebGL. Call 01225 698 188 or write to info@bendac.tech.</div>
+
+<video id="vid" src="media/face.mp4" muted playsinline loop autoplay preload="auto" crossorigin="anonymous" style="display:none"></video>
+
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

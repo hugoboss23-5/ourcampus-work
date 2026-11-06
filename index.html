@@ -1,30 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hugo Villalba - work for David</title>
-<style>
-body{font:17px/1.5 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:720px;margin:48px auto;padding:0 20px;color:#111}
-h1{font-size:26px;margin-bottom:28px}
-ul{list-style:none;padding:0}
-li{padding:14px 0;border-top:1px solid #ddd}
-a{font-weight:600;color:#0a4fd6}
-p{margin:4px 0 0;color:#444}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ece9e2">
+<title>Hugo Villalba · Work for OurCampus</title>
+<meta name="description" content="Every project Hugo Villalba has made for David DaCosta and OurCampus, with what each piece is and a link that opens it.">
+<meta property="og:title" content="Hugo Villalba · Work for OurCampus">
+<meta property="og:description" content="Every project for David DaCosta and OurCampus, in one place.">
+<meta property="og:image" content="https://hugoboss23-5.github.io/ourcampus-work/home/og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="home/icon.svg" type="image/svg+xml">
+<link rel="preload" href="home/fonts/cormorant-garamond-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="home/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="home/home.css">
+<!--
+  built-from:
+  - three.js r186 (MIT), GLTFLoader, RoomEnvironment: vendored copy from this repo's worldwide-stages-six-options/vendor, https://threejs.org
+  - Hero model: this repo's worldwide-stages-existing-campus/Worldwide Stages - Building Only.glb (Hugo's own Sep 15 model)
+  - Fonts: Cormorant Garamond (OFL, via Fontsource), Inter (OFL), JetBrains Mono (OFL)
+  - Layout grammar: Persepolis Reimagined (ring numbers, giant serif chapter names, dot rail, map as menu),
+    Igloo (pale atmosphere, mono corner labels), Immersive Garden and Hello Monday (project cards, white space).
+    Pictures in ~/brain/design/standard, notes in ~/projects/ourcampus-work-build/LOOKED.md
+  - Page content comes from projects.json. How to add things: README.md
+-->
+<script type="importmap">{"imports":{"three":"./home/vendor/three.module.js","three/addons/":"./home/vendor/addons/"}}</script>
 </head>
 <body>
-<h1>Hugo Villalba - work for David</h1>
-<ul>
-<li><a href="ace-mission-model/">Ace Mission model</a><p>3D reconstruction of the Ace Mission campus.</p></li>
-<li><a href="ace-mission-interiors/">Ace Mission interiors</a><p>Interior flythroughs of the Ace Mission buildings.</p></li>
-<li><a href="worldwide-stages-existing-campus/Viewer/">Worldwide Stages, existing campus</a><p>Rotatable 3D model of the current campus next to the source photos and renders.</p></li>
-<li><a href="worldwide-stages-six-options/">Worldwide Stages, six options</a><p>Six planning options for the campus, viewable in 3D with plans and downloads.</p></li>
-<li><a href="tennessee-campus-preview/">Tennessee campus preview</a><p>Our Campus preview page with a drone flyover.</p></li>
-<li><a href="https://hugoboss23-5.github.io/ace-mission-flythrough/">Ace Mission flythrough site</a><p>The earlier Ace Mission campus flythrough website.</p></li>
-<li><a href="https://hugoboss23-5.github.io/bendac-preview/versions.html">Bendac website, all versions</a><p>Unfinished redesign: version 1, the phone-first version, version 3, and versions 4 and 5.</p></li>
-<li><a href="https://bendac-reimagined.recoilmaster69.chatgpt.site">Bendac website, phone-first version</a><p>Open it on a phone for the intended layout.</p></li>
-<li><a href="https://drive.google.com/drive/folders/1E7d-afS2qklJNtB2ebgBRndW2wZ-vmLt">All files (Google Drive)</a><p>Editable models, videos, presentations, drawings and source files for every project.</p></li>
-</ul>
+<header class="bar" id="bar">
+  <a class="mark" href="#top" aria-label="Back to the top"><span class="mark-name">Hugo Villalba</span><span class="mark-for">for OurCampus</span></a>
+  <p class="here" id="here" aria-live="polite"></p>
+  <nav class="rail" id="rail" aria-label="Projects"></nav>
+</header>
+
+<section class="hero" id="top" aria-labelledby="title">
+  <div class="stage" id="stage" aria-hidden="true">
+    <div class="glow" id="glow"></div>
+    <canvas id="scene"></canvas>
+    <div class="loader" id="loader"><svg viewBox="0 0 64 64"><circle class="track" cx="32" cy="32" r="30"/><circle class="fill" id="loader-fill" cx="32" cy="32" r="30"/></svg><span id="loader-n">0</span></div>
+  </div>
+  <p class="caption" id="caption"><span>Worldwide Stages, Spring Hill, Tennessee</span><span class="caption-hint" id="hint">Live 3D model. Move to change the light.</span></p>
+  <div class="hero-copy">
+    <p class="eyebrow">Hugo Villalba · for David DaCosta</p>
+    <h1 id="title"><span class="l">Work for</span> <span class="l">OurCampus</span></h1>
+    <p class="lede" id="lede">Five projects. Every piece, what it is, and a link that opens it.</p>
+  </div>
+  <nav class="index" id="index" aria-label="Project index"></nav>
+  <a class="cue" href="#projects"><span class="cue-line"></span>Scroll to the projects</a>
+</section>
+
+<main id="projects" class="projects">
+  <noscript><p class="noscript">This page lists its projects with JavaScript. The list is also in <a href="projects.json">projects.json</a>.</p></noscript>
+</main>
+
+<footer class="foot">
+  <p class="foot-big">Every new piece goes here.</p>
+  <p class="foot-small">Made by Hugo Villalba for David DaCosta and the OurCampus team. <span id="updated"></span></p>
+  <a class="foot-top" href="#top">Back to the top</a>
+</footer>
+
+<script type="module" src="home/home.js"></script>
+<script type="module" src="home/hero.js"></script>
 </body>
 </html>

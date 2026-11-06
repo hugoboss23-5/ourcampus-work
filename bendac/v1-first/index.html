@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bendac | The Perfect Pixel People</title>
+<meta name="description" content="Bendac: premium LED screen providers. A full turnkey solution, from conceptual design and planning through to installation, commissioning and in-house aftercare.">
+<meta name="theme-color" content="#040605">
+<link rel="icon" href="assets/img/logo-b-mark.webp">
+<!--
+built-from:
+  three.js r160 (MIT) https://threejs.org  : WebGLRenderer, Reflector, EffectComposer, UnrealBloomPass, OutputPass
+  GSAP 3.12.5 + ScrollTrigger https://gsap.com : scroll choreography
+  Lenis 1.1.13 (MIT) https://github.com/darkroomengineering/lenis : smooth scroll
+  Archivo (variable, wdth 62-125) and JetBrains Mono, Google Fonts (OFL), self-hosted
+  Bendac content: words, logo, photos and video from https://www.bendac.tech and the Bendac Group YouTube channel
+  (UCaNQFfop-mjotBrHy31mvlA); every file traced in SOURCES.md
+  Technique references: ~/brain/design/standard (Igloo, Lusion, Hello Monday, Immersive Garden, Off+Brand, Hamzah)
+-->
+<link rel="stylesheet" href="vendor/lenis/lenis.css">
+<link rel="stylesheet" href="css/site.css">
+<script type="importmap">{ "imports": { "three": "./vendor/three/three.module.js", "three/addons/": "./vendor/three/addons/" } }</script>
+</head>
+<body class="is-loading">
+
+<!-- LOADER: the circled B built from LED dots -->
+<div class="loader" id="loader" aria-hidden="true">
+  <canvas class="loader__dots" id="loaderDots" width="360" height="360"></canvas>
+  <div class="loader__meta mono"><span>Lighting pixels</span><span class="loader__count" id="loaderCount">000</span></div>
+</div>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <a class="hdr__logo" href="#wall" aria-label="Bendac home"><img src="assets/img/logo-bendac-white.webp" alt="Bendac" width="992" height="302"></a>
+  <div class="chapter mono" id="chapter" aria-live="polite"><span class="chapter__num" id="chapterNum">01</span><span class="chapter__bar"><i id="chapterBar"></i></span><span class="chapter__name" id="chapterName">The wall</span></div>
+  <nav class="hdr__actions">
+    <a class="pill magnetic" href="#contact"><span>Get a quote</span><i class="pill__dot"></i></a>
+    <button class="menu-btn magnetic" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><i></i><i></i></button>
+  </nav>
+</header>
+
+<nav class="menu" id="menu" aria-hidden="true">
+  <ol class="menu__list">
+    <li><a href="#wall"><span class="mono">01</span>The wall</a></li>
+    <li><a href="#what"><span class="mono">02</span>What we do</a></li>
+    <li><a href="#range"><span class="mono">03</span>The range</a></li>
+    <li><a href="#sectors"><span class="mono">04</span>Where it lives</a></li>
+    <li><a href="#work"><span class="mono">05</span>The work</a></li>
+    <li><a href="#film"><span class="mono">06</span>On film</a></li>
+    <li><a href="#clients"><span class="mono">07</span>Trusted by</a></li>
+    <li><a href="#contact"><span class="mono">08</span>Talk to us</a></li>
+  </ol>
+  <div class="menu__foot mono"><a href="tel:01225698188">01225 698 188</a><a href="mailto:info@bendac.tech">info@bendac.tech</a></div>
+</nav>
+
+<ol class="rail" id="rail" aria-hidden="true"></ol>
+
+<main>
+<!-- 01 THE WALL -->
+<section class="wall" id="wall" data-chapter="01" data-name="The wall">
+  <div class="wall__stage">
+    <canvas class="wall__canvas" id="wallCanvas" aria-label="A curved Bendac LED wall playing Bendac's brand film. Scroll to tighten the pixel pitch."></canvas>
+    <img class="wall__fallback" id="wallFallback" src="assets/video/brand-film-poster.jpg" alt="Bendac brand film still" hidden>
+    <div class="wall__scrim" id="wallScrim" aria-hidden="true"></div>
+    <div class="wall__ui">
+      <div class="wall__corner wall__corner--tl mono">
+        <span>Premium LED screen providers</span>
+        <span class="dim">Trowbridge, UK. Playing: Bendac brand film</span>
+      </div>
+      <div class="wall__corner wall__corner--tr mono" id="pitchReadout">
+        <span class="dim">Pixel pitch</span>
+        <span class="wall__pitch"><b id="pitchVal">10.0</b> mm</span>
+        <span class="dim" id="pitchRange">Outdoor and perimeter</span>
+      </div>
+      <h1 class="wall__title display" id="wallTitle">
+        <span class="line"><span>The Perfect</span></span>
+        <span class="line"><span>Pixel People</span></span>
+      </h1>
+      <p class="wall__sub" id="wallSub">Premium LED screen providers. A full turnkey solution, from conceptual design and planning through to installation and commissioning.</p>
+      <p class="wall__end display" id="wallEnd" aria-hidden="true">From reliable 10&nbsp;mm outdoor screens to 0.4&nbsp;mm Krystl&#8209;clear.</p>
+      <div class="wall__scroll mono" id="wallScroll"><span>Scroll to sharpen</span><span class="wall__track"><i id="wallProgress"></i></span><span class="dim">10 mm &rarr; 0.4 mm</span></div>
+      <p class="wall__note mono dim">Visualisation, not to scale</p>
+    </div>
+    <div class="hint mono" id="loupeHint" aria-hidden="true"><i></i><span class="hint__mouse">0.4 mm under your cursor</span><span class="hint__touch">Drag to look closer</span></div>
+  </div>
+</section>
+
+<!-- 02 WHAT WE DO -->
+<section class="what section" id="what" data-chapter="02" data-name="What we do">
+  <div class="marks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <p class="eyebrow mono">02 / What we do</p>
+  <h2 class="statement display reveal-lines">Innovators of technology, providing a full turnkey solution that enhances your world through LED.</h2>
+  <ol class="steps">
+    <li class="step"><span class="mono step__n">01</span><h3>Conceptual design</h3><p>A range designed by our in-house experts to achieve the highest standards in the industry.</p></li>
+    <li class="step"><span class="mono step__n">02</span><h3>Planning</h3><p>A variety of payment options, and for sports projects a site survey at no additional charge.</p></li>
+    <li class="step"><span class="mono step__n">03</span><h3>Installation and commissioning</h3><p>Managed by our LED engineers and project managers, with solutions installed in over 20 countries.</p></li>
+    <li class="step"><span class="mono step__n">04</span><h3>In-house aftercare</h3><p>Impeccable assistance from our in-house after-care team, with twenty-four seven support for all clients, on all projects.</p></li>
+  </ol>
+  <div class="stats">
+    <figure class="stat"><canvas class="dotnum" data-text="25+" aria-hidden="true"></canvas><figcaption><b>25+</b> years of LED experience</figcaption></figure>
+    <figure class="stat"><canvas class="dotnum" data-text="250M+" aria-hidden="true"></canvas><figcaption><b>250M+</b> pixels installed</figcaption></figure>
+    <figure class="stat"><canvas class="dotnum" data-text="20+" aria-hidden="true"></canvas><figcaption><b>20+</b> countries with Bendac installs</figcaption></figure>
+    <figure class="stat"><canvas class="dotnum" data-text="7" aria-hidden="true"></canvas><figcaption><b>7</b> industry awards</figcaption></figure>
+  </div>
+</section>
+
+<!-- 03 THE RANGE -->
+<section class="range section" id="range" data-chapter="03" data-name="The range">
+  <p class="eyebrow mono">03 / The range</p>
+  <div class="range__head">
+    <h2 class="display h2">Choose by place,<br>not by code.</h2>
+    <p class="range__intro">Every possible screen application, from super high-resolution screens with a 0.4 mm pixel pitch through to reliable 10 mm outdoor screens. Designed by Bendac's in-house experts.</p>
+  </div>
+  <div class="places" role="tablist" aria-label="Where will your screen live?" id="places"></div>
+  <div class="product" id="product" aria-live="polite">
+    <div class="product__visual tilt" id="productVisual">
+      <img id="productImg" src="assets/img/prod-krystl.webp" alt="Krystl LED cabinet" width="1200" height="900">
+      <i class="product__sheen"></i>
+    </div>
+    <div class="product__info">
+      <p class="mono product__kind" id="productKind">Indoor high-resolution</p>
+      <h3 class="display product__name" id="productName">Krystl</h3>
+      <p class="product__tag" id="productTag">Quality-Tech. Krystl-Clear.</p>
+      <p class="product__body" id="productBody"></p>
+      <dl class="specs" id="productSpecs"></dl>
+      <p class="product__case mono" id="productCase"></p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 WHERE IT LIVES -->
+<section class="sectors section" id="sectors" data-chapter="04" data-name="Where it lives">
+  <p class="eyebrow mono">04 / Where it lives</p>
+  <div class="sectors__grid">
+    <div class="sectors__words">
+      <p class="sectors__lead">We bring LED to</p>
+      <p class="sectors__word display" id="sectorWord">Stadiums</p>
+      <p class="sectors__line" id="sectorLine"></p>
+      <ul class="sectors__list mono" id="sectorList"></ul>
+    </div>
+    <figure class="sectors__photo tilt" id="sectorPhoto">
+      <img id="sectorImg" src="assets/img/sport-smoke.webp" alt="" width="844" height="844">
+      <figcaption class="mono" id="sectorCap"></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 05 THE WORK -->
+<section class="work section" id="work" data-chapter="05" data-name="The work">
+  <p class="eyebrow mono">05 / The work</p>
+  <h2 class="display h2">From iconic stadiums to cutting-edge offices.</h2>
+
+  <article class="feature">
+    <div class="feature__collage">
+      <figure class="feature__big rgb-in tilt"><img src="assets/img/case-google-stairs.webp" alt="Bendac's custom LED staircase at Google's Berlin office" loading="lazy" width="957" height="597"></figure>
+      <figure class="feature__s1 rgb-in"><img src="assets/img/case-google-stairs-2.webp" alt="The LED staircase showing colour content" loading="lazy" width="1000" height="1333"></figure>
+      <figure class="feature__s2 rgb-in"><img src="assets/img/case-google-stairs-3.webp" alt="The LED staircase from the foot of the stairs" loading="lazy" width="1000" height="1333"></figure>
+    </div>
+    <div class="feature__text">
+      <p class="mono dim">Featured / Google YouTube, Berlin</p>
+      <h3 class="display h3">A total custom LED staircase.</h3>
+      <p>Google asked Bendac to design, build and install a fully custom LED staircase at its flagship European HQ in Berlin, the link between the YouTube studios and the main campus. A bespoke mounting system and tailored 2.5 mm LED modules gave resolution, serviceability and impact protection.</p>
+      <dl class="facts"><div><dt class="mono">Bespoke steps</dt><dd class="display">22</dd></div><div><dt class="mono">LED modules</dt><dd class="display">2.5 mm</dd></div><div><dt class="mono">Range</dt><dd class="display">Artist</dd></div></dl>
+      <button class="link-btn mono" data-yt="lPA5SUE9lFY" data-title="Bendac Design Bespoke LED Staircase for the YouTube Berlin Office">Watch the film &rarr;</button>
+    </div>
+  </article>
+
+  <div class="cases" id="cases"></div>
+  <p class="work__more mono"><a href="https://www.bendac.tech/portfolio" target="_blank" rel="noopener">All projects on bendac.tech &nearr;</a></p>
+</section>
+
+<!-- 06 ON FILM -->
+<section class="film section" id="film" data-chapter="06" data-name="On film">
+  <p class="eyebrow mono">06 / On film</p>
+  <h2 class="display h2">See it lit.</h2>
+  <div class="film__grid">
+    <div class="screen" id="screen">
+      <div class="screen__frame" id="screenFrame">
+        <button class="screen__poster" id="screenPoster" aria-label="Play We Are Bendac">
+          <img id="screenImg" src="assets/yt/y1r_FnzCGS0.webp" alt="" width="960" height="540">
+          <span class="screen__play"><i></i></span>
+        </button>
+      </div>
+      <p class="screen__now mono"><span class="dim">Now showing</span> <span id="screenTitle">We Are Bendac</span></p>
+    </div>
+    <ol class="films mono" id="films"></ol>
+  </div>
+  <p class="film__more mono"><a href="https://www.youtube.com/channel/UCaNQFfop-mjotBrHy31mvlA" target="_blank" rel="noopener">48 films on the Bendac Group YouTube channel &nearr;</a></p>
+</section>
+
+<!-- 07 TRUSTED BY -->
+<section class="clients section" id="clients" data-chapter="07" data-name="Trusted by">
+  <p class="eyebrow mono">07 / Trusted by</p>
+  <div class="ribbon" aria-hidden="true"><canvas id="ribbon"></canvas></div>
+  <ul class="logos">
+    <li class="logo-tile"><img src="assets/img/logo-google.webp" alt="Google" width="800" height="271" loading="lazy"></li>
+    <li class="logo-tile"><img src="assets/img/logo-ksc.webp" alt="Kennedy Space Center" width="512" height="512" loading="lazy"></li>
+    <li class="logo-tile"><img src="assets/img/logo-britishland.webp" alt="British Land" width="1200" height="559" loading="lazy"></li>
+    <li class="logo-tile"><img src="assets/img/logo-cocacola.webp" alt="Coca-Cola" width="1024" height="321" loading="lazy"></li>
+  </ul>
+  <p class="clients__names" id="clientNames"></p>
+</section>
+
+<!-- 08 TALK TO US -->
+<section class="contact section" id="contact" data-chapter="08" data-name="Talk to us">
+  <p class="eyebrow mono">08 / Talk to us</p>
+  <div class="contact__grid">
+    <div class="contact__left">
+      <h2 class="display h2">Get in touch.</h2>
+      <blockquote class="quote"><p>&ldquo;To provide the correct solution, always!&rdquo;</p><cite class="mono">Ben Da Costa, Founder</cite></blockquote>
+      <ul class="places-list">
+        <li><span class="mono dim">HQ</span><b>Monckton House, Trowbridge, BA14 0XG, UK</b></li>
+        <li><span class="mono dim">London hub</span><b>Farringdon</b></li>
+        <li><span class="mono dim">Northern hub</span><b>Bolton</b></li>
+      </ul>
+      <p class="contact__direct"><a class="big-link" href="tel:01225698188">01225 698 188</a><a class="big-link" href="mailto:info@bendac.tech">info@bendac.tech</a></p>
+    </div>
+    <form class="form" id="quoteForm" novalidate>
+      <p class="mono dim form__label">What are you planning?</p>
+      <div class="chips" id="chips">
+        <label><input type="checkbox" name="plan" value="Stadium"><span>Stadium or club</span></label>
+        <label><input type="checkbox" name="plan" value="Office"><span>Office</span></label>
+        <label><input type="checkbox" name="plan" value="Virtual production"><span>Virtual production</span></label>
+        <label><input type="checkbox" name="plan" value="Retail or DOOH"><span>Retail or DOOH</span></label>
+        <label><input type="checkbox" name="plan" value="Attraction"><span>Attraction</span></label>
+        <label><input type="checkbox" name="plan" value="Custom"><span>Something custom</span></label>
+      </div>
+      <div class="row2">
+        <label class="field"><span class="mono">First name</span><input name="first" autocomplete="given-name" required></label>
+        <label class="field"><span class="mono">Last name</span><input name="last" autocomplete="family-name"></label>
+      </div>
+      <label class="field"><span class="mono">Email</span><input name="email" type="email" autocomplete="email" required></label>
+      <label class="field"><span class="mono">Write a message</span><textarea name="message" rows="4"></textarea></label>
+      <button class="pill pill--big magnetic" type="submit"><span>Send enquiry</span><i class="pill__dot"></i></button>
+      <p class="form__status mono" id="formStatus" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <img src="assets/img/logo-bendac-white.webp" alt="Bendac" width="992" height="302" loading="lazy">
+  <p class="mono">The Perfect Pixel People</p>
+  <p class="mono dim">Design proposal for Bendac, October 2026. Not the live bendac.tech site. <a href="https://www.bendac.tech/general-5" target="_blank" rel="noopener">Privacy policy</a></p>
+</footer>
+
+<dialog class="yt" id="yt">
+  <div class="yt__box"><button class="yt__close mono" id="ytClose">Close &times;</button><div class="yt__frame" id="ytFrame"></div><p class="mono yt__title" id="ytTitle"></p></div>
+</dialog>
+
+<script>
+  // failsafe: if a script fails to load, never trap the visitor behind the loader
+  setTimeout(function () { if (document.body.classList.contains('is-loading')) { document.body.classList.remove('is-loading'); document.body.classList.add('ready', 'failsafe'); } }, 9000);
+</script>
+<script src="vendor/gsap/gsap.min.js"></script>
+<script src="vendor/gsap/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis/lenis.min.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!doctype html>
+<!-- built-from: Three.js r160 MeshStandardMaterial and WebGL examples (MIT, https://threejs.org/examples/); native HTML dialog, scroll-snap, details; Bendac's existing media and locally hosted Archivo / JetBrains Mono (OFL). Choreography follows the subject-first methods in Hugo's UI Standard. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="robots" content="noindex,nofollow">
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#080a09" />
+    <title>Bendac — Beyond the screen</title>
+    <meta
+      name="description"
+      content="Premium LED displays that bring spaces to life. Explore Bendac's work, from stadiums to extraordinary destinations."
+    />
+    <meta property="og:title" content="Bendac — Beyond the screen" />
+    <meta
+      property="og:description"
+      content="Small pixels. Extraordinary possibilities. A new Bendac experience."
+    />
+    <meta
+      property="og:image"
+      content="https://bendac-reimagined.recoilmaster69.chatgpt.site/assets/img/case-google-stairs.webp"
+    />
+    <link rel="icon" href="assets/img/logo-b-mark.webp" />
+    <link
+      rel="preload"
+      href="assets/fonts/archivo-latin-var.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="css/site.css" />
+    <script type="importmap">
+      { "imports": { "three": "./vendor/three/three.module.js" } }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#intro">Skip to content</a>
+    <header class="header">
+      <a class="brand" href="#home" aria-label="Bendac home"
+        ><img
+          src="assets/img/logo-bendac-white.webp"
+          alt="Bendac"
+          width="992"
+          height="302" /></a
+      ><a class="header-contact" href="#contact">Let’s talk <span>↗</span></a
+      ><button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="menu"
+        aria-label="Open menu"
+      >
+        <span></span><span></span>
+      </button>
+    </header>
+    <nav id="menu" class="menu" aria-label="Main navigation" hidden>
+      <span class="eyebrow">A world of possibilities</span
+      ><a href="#work">The work <small>01</small></a
+      ><a href="#range">The right screen <small>02</small></a
+      ><a href="#sharing">Just tap <small>03</small></a
+      ><a href="#people">The people <small>04</small></a
+      ><a href="#contact">Your next project <small>05</small></a>
+      <p>Premium LED. From first idea to switch-on.</p>
+    </nav>
+    <main>
+      <section class="hero" id="home" data-name="Beyond the screen">
+        <div class="hero-kicker eyebrow">
+          <span><b class="signal"></b> The perfect pixel people</span
+          ><span class="hero-location"
+            >Designed in the UK. Seen worldwide.</span
+          >
+        </div>
+        <h1>
+          BEYOND<br /><span>THE <em>SCREEN.</em></span>
+        </h1>
+        <div class="hero-stage" id="stage">
+          <img
+            class="stage-fallback"
+            src="assets/img/prod-versa.webp"
+            alt="Bendac’s Versa display showing iridescent colour artwork"
+          /><canvas
+            id="display"
+            aria-label="Interactive three-dimensional LED display"
+            role="img"
+          ></canvas>
+          <div class="stage-index eyebrow">
+            <span id="sceneIndex">01 / 03</span
+            ><span id="sceneName">Light in every dimension.</span>
+          </div>
+          <span class="stage-hint eyebrow" id="stageHint"
+            >Drag to change your perspective ↔</span
+          ><span class="render-mode eyebrow" id="renderMode" hidden
+            >Still view · full experience below</span
+          >
+        </div>
+        <div class="hero-bottom">
+          <p>Premium LED displays.<br />Extraordinary possibilities.</p>
+          <div
+            class="scene-tabs"
+            role="group"
+            aria-label="Preview a display application"
+          >
+            <button class="active" data-scene="0" aria-pressed="true">
+              Light</button
+            ><button data-scene="1" aria-pressed="false">Sport</button
+            ><button data-scene="2" aria-pressed="false">Work</button>
+          </div>
+          <a class="scroll-cue eyebrow" href="#intro"
+            >Scroll to discover <span>↓</span></a
+          >
+        </div>
+      </section>
+      <section
+        class="intro light"
+        id="intro"
+        data-name="A world of possibilities"
+      >
+        <div class="section-line eyebrow">
+          <span>LED, without limits.</span><span>↙ Meet Bendac</span>
+        </div>
+        <h2>
+          Small pixels.<br /><span class="dim">Big</span> possibilities<span
+            class="green"
+            >.</span
+          >
+        </h2>
+        <div class="intro-bottom">
+          <p>
+            We design, install and support premium LED displays. From a room
+            that brings people together to a stadium that brings them to their
+            feet.
+          </p>
+          <a href="#work" class="circle-link" aria-label="Explore the work"
+            >↓</a
+          >
+        </div>
+        <div class="stats">
+          <div>
+            <strong>25<span>+</span></strong
+            ><span>Years of LED experience</span>
+          </div>
+          <div>
+            <strong>250<span>M+</span></strong
+            ><span>Pixels installed</span>
+          </div>
+          <div><strong>Global</strong><span>Service coverage</span></div>
+        </div>
+      </section>
+      <section class="work" id="work" data-name="The work">
+        <div class="section-line eyebrow">
+          <span>01 / The work</span><span>Real spaces. Real impact.</span>
+        </div>
+        <div class="work-heading">
+          <h2>Built to be<br /><em>unforgettable.</em></h2>
+          <p>Different places.<br />The same obsession with every pixel.</p>
+        </div>
+        <article class="project project-google">
+          <div class="project-visual">
+            <img
+              src="assets/img/case-google-stairs-2.webp"
+              alt="Bendac LED staircase at Google's YouTube offices in Berlin"
+              width="1000"
+              height="1333"
+              loading="lazy"
+            /><span class="image-tag eyebrow">Berlin, Germany</span
+            ><a
+              class="project-open"
+              href="https://www.bendac.tech/projects-1/google-youtube"
+              target="_blank"
+              rel="noopener"
+              aria-label="Read the Google YouTube project on Bendac's website"
+              >↗</a
+            >
+          </div>
+          <div class="project-copy">
+            <span class="eyebrow">01—01 / Workplace</span>
+            <h3>Every step.<br />A statement.</h3>
+            <p>
+              A staircase becomes a canvas. Twenty-two bespoke LED steps connect
+              YouTube’s studios and campus in Berlin.
+            </p>
+            <div class="project-client">
+              <span>Google / YouTube</span><span>22 bespoke steps</span>
+            </div>
+          </div>
+        </article>
+        <article class="project project-bath">
+          <div class="project-visual">
+            <img
+              src="assets/img/sport-smoke.webp"
+              alt="Bendac stadium screen glowing above the crowd and coloured smoke at Bath Rugby"
+              width="844"
+              height="844"
+              loading="lazy"
+            /><span class="image-tag eyebrow">Bath, United Kingdom</span
+            ><a
+              class="project-open"
+              href="https://www.bendac.tech/projects-1/bath-rugby"
+              target="_blank"
+              rel="noopener"
+              aria-label="Read the Bath Rugby project on Bendac's website"
+              >↗</a
+            >
+          </div>
+          <div class="project-copy">
+            <span class="eyebrow">01—02 / Sport</span>
+            <h3>For the moments<br />that move us.</h3>
+            <p>
+              From the first whistle to the final score. Seven screens across
+              the stadium and training ground.
+            </p>
+            <div class="project-client">
+              <span>Bath Rugby</span><span>2 locations / 7 screens</span>
+            </div>
+          </div>
+        </article>
+        <article class="project project-ksc">
+          <div class="project-visual">
+            <img
+              src="assets/img/case-ksc.webp"
+              alt="Bendac's immersive LED screens at Kennedy Space Center"
+              width="1200"
+              height="800"
+              loading="lazy"
+            /><span class="image-tag eyebrow">Florida, USA</span
+            ><button
+              class="project-open"
+              data-film="iK2QC-RMUtY"
+              data-title="Kennedy Space Center"
+              aria-label="Watch the Kennedy Space Center film"
+            >
+              ↗
+            </button>
+          </div>
+          <div class="project-copy">
+            <span class="eyebrow">01—03 / Attractions</span>
+            <h3>Out of<br />this world.</h3>
+            <p>
+              More than 200 square metres of LED at the home of space
+              exploration. An extraordinary destination, brought to life.
+            </p>
+            <div class="project-client">
+              <span>Kennedy Space Center</span><span>200 m²+ of LED</span>
+            </div>
+          </div>
+        </article>
+        <div class="client-strip eyebrow">
+          <span>In good company</span>
+          <div>
+            Google <span>✳</span> Kennedy Space Center
+            <span>✳</span> Coca-Cola <span>✳</span> British Land
+          </div>
+        </div>
+      </section>
+      <section class="range light" id="range" data-name="The right screen">
+        <div class="section-line eyebrow">
+          <span>02 / The right screen</span><span>Your space comes first.</span>
+        </div>
+        <div class="range-heading">
+          <h2>What’s your<br /><em>big idea?</em></h2>
+          <p>Tell us where it goes.<br />We’ll find its perfect pixels.</p>
+        </div>
+        <div class="product-explorer">
+          <div
+            class="product-choices"
+            role="group"
+            aria-label="Choose your display setting"
+          >
+            <button data-product="0" class="active" aria-pressed="true">
+              <span>01</span> Up close, indoors <b>↗</b></button
+            ><button data-product="1" aria-pressed="false">
+              <span>02</span> Out in the elements <b>↗</b></button
+            ><button data-product="2" aria-pressed="false">
+              <span>03</span> Everyday impact <b>↗</b></button
+            ><button data-product="3" aria-pressed="false">
+              <span>04</span> Beyond the rectangle <b>↗</b></button
+            ><button data-product="4" aria-pressed="false">
+              <span>05</span> Pitch-side <b>↗</b></button
+            ><button data-product="5" aria-pressed="false">
+              <span>06</span> Matchday production <b>↗</b>
+            </button>
+          </div>
+          <div class="product-result" aria-live="polite">
+            <div class="product-image">
+              <img
+                id="productImage"
+                src="assets/img/prod-krystl.webp"
+                alt="Krystl high-resolution LED display"
+                width="1200"
+                height="900"
+                loading="lazy"
+              /><span class="eyebrow" id="productType"
+                >Indoor / high resolution</span
+              >
+            </div>
+            <div class="product-info">
+              <h3 id="productName">Krystl</h3>
+              <p id="productDescription">
+                Picture-perfect, even up close. Our high-resolution LED range
+                for spaces where every detail matters.
+              </p>
+              <dl id="productSpecs">
+                <div>
+                  <dt>Pixel pitch from</dt>
+                  <dd>0.4 mm</dd>
+                </div>
+                <div>
+                  <dt>Brightness up to</dt>
+                  <dd>1,800 nits</dd>
+                </div>
+              </dl>
+              <a
+                id="productLink"
+                href="https://www.bendac.tech/krystl"
+                target="_blank"
+                rel="noopener"
+                class="text-link"
+                >Explore Krystl <span>↗</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="sharing" id="sharing" data-name="Just tap">
+        <div class="section-line eyebrow">
+          <span>03 / Just tap</span><span>Big screen. Small effort.</span>
+        </div>
+        <h2>Made to amaze.<br /><em>Easy to use.</em></h2>
+        <p class="section-intro">
+          Your ideas deserve a bigger screen.<br />Try this interactive sharing
+          demo.
+        </p>
+        <div class="share-demo">
+          <div class="shared-wall">
+            <img
+              src="assets/img/corp-corner.webp"
+              alt="LED meeting room display"
+              id="sharedImage"
+              loading="lazy"
+            />
+            <div class="share-idle">
+              <span class="signal"></span
+              ><span id="shareStatus">Your next big idea goes here.</span>
+            </div>
+            <span class="share-live eyebrow" hidden>● Sharing your screen</span>
+          </div>
+          <div class="share-controls">
+            <div
+              class="device-tabs"
+              role="group"
+              aria-label="Choose your device"
+            >
+              <button data-device="iPhone" aria-pressed="true" class="active">
+                iPhone</button
+              ><button data-device="iPad" aria-pressed="false">iPad</button
+              ><button data-device="Mac" aria-pressed="false">Mac</button
+              ><button data-device="Android" aria-pressed="false">
+                Android</button
+              ><button data-device="Windows" aria-pressed="false">
+                Windows
+              </button>
+            </div>
+            <div class="device-ui">
+              <div class="device-top eyebrow">
+                <span id="deviceName">iPhone</span><span>● ● ●</span>
+              </div>
+              <div class="device-screen">
+                <img
+                  src="assets/img/case-google-stairs.webp"
+                  alt="The project content being shared"
+                  loading="lazy"
+                /><span>Ideas worth sharing.</span>
+              </div>
+              <div class="device-bottom">
+                <p id="deviceInstruction">
+                  Open Control Centre.<br />Choose Screen Mirroring.
+                </p>
+                <button class="share-button" id="shareButton">
+                  Try sharing <span>↗</span>
+                </button>
+              </div>
+            </div>
+            <p class="share-disclaimer">
+              Illustrative demo. Wireless sharing options depend on the system
+              specified for your installation.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="people light"
+        id="people"
+        data-name="The perfect pixel people"
+      >
+        <div class="section-line eyebrow">
+          <span>04 / The perfect pixel people</span
+          ><span>One team. Every step.</span>
+        </div>
+        <h2>From “what if”<br />to <em>switch-on.</em></h2>
+        <div class="people-grid">
+          <div class="people-image">
+            <img
+              src="assets/img/team-hivis.webp"
+              alt="Bendac's engineers testing a large LED display"
+              width="1200"
+              height="900"
+              loading="lazy"
+            /><span class="eyebrow">The people behind the pixels.</span>
+          </div>
+          <div class="process">
+            <details open>
+              <summary><span>01</span> Imagine it. <b>+</b></summary>
+              <p>
+                Conceptual design and planning. The right solution starts with
+                understanding your space.
+              </p>
+            </details>
+            <details>
+              <summary><span>02</span> Engineer it. <b>+</b></summary>
+              <p>
+                Our expert teams bring LED technology, design and project
+                management together.
+              </p>
+            </details>
+            <details>
+              <summary><span>03</span> Bring it to life. <b>+</b></summary>
+              <p>
+                Installation and commissioning, managed by Bendac’s LED
+                engineers and project managers.
+              </p>
+            </details>
+            <details>
+              <summary><span>04</span> Keep it brilliant. <b>+</b></summary>
+              <p>
+                Impeccable assistance from our in-house after-care team. Built
+                for a lasting relationship.
+              </p>
+            </details>
+            <a href="#contact" class="text-link"
+              >Meet your project team <span>↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="films" id="films" data-name="Bendac in motion">
+        <div class="section-line eyebrow">
+          <span>Bendac in motion</span><span>See what’s possible.</span>
+        </div>
+        <div class="film-grid">
+          <button
+            class="film-main"
+            data-film="y1r_FnzCGS0"
+            data-title="We Are Bendac"
+          >
+            <img
+              src="assets/yt/y1r_FnzCGS0.webp"
+              alt="Bendac brand film"
+              loading="lazy"
+            /><span class="play">▶</span
+            ><span class="film-title"
+              >Meet the pixel people. <small>Watch the film ↗</small></span
+            ></button
+          ><button
+            class="film-small"
+            data-film="jvZx8jLHGhQ"
+            data-title="Bendac F1 Concept"
+          >
+            <img
+              src="assets/yt/jvZx8jLHGhQ.webp"
+              alt="Bendac's F1 display concept"
+              loading="lazy"
+            /><span class="play">▶</span
+            ><span class="film-title"
+              >A different kind of pole position.<small
+                >The F1 concept ↗</small
+              ></span
+            >
+          </button>
+        </div>
+      </section>
+      <section class="contact" id="contact" data-name="Your next project">
+        <div class="section-line eyebrow">
+          <span>05 / Your next project</span
+          ><span><b class="signal"></b> Let’s make it happen.</span>
+        </div>
+        <h2><span>Your space.</span><span>Our next</span><em>canvas.</em></h2>
+        <a class="contact-email" href="mailto:info@bendac.tech"
+          >info@bendac.tech <span>↗</span></a
+        >
+        <div class="contact-bottom">
+          <a href="tel:+441225698188">+44 (0)1225 698 188</a>
+          <p>Monckton House, Trowbridge<br />BA14 0XG, United Kingdom</p>
+          <a
+            href="https://www.bendac.tech/contact-us"
+            target="_blank"
+            rel="noopener"
+            >All locations ↗</a
+          >
+        </div>
+        <footer>
+          <img
+            src="assets/img/logo-bendac-white.webp"
+            alt="Bendac"
+            width="992"
+            height="302"
+            loading="lazy"
+          /><span class="eyebrow">The perfect pixel people.</span
+          ><span class="proposal-note">Independent design proposal / 2026</span
+          ><a href="#home" aria-label="Back to top">↑</a>
+        </footer>
+      </section>
+    </main>
+    <div class="chapter-indicator eyebrow" aria-hidden="true">
+      <span class="signal"></span
+      ><span id="chapterLabel">Beyond the screen</span>
+    </div>
+    <dialog id="filmDialog" aria-labelledby="filmTitle">
+      <div class="dialog-head">
+        <h2 id="filmTitle">Bendac in motion</h2>
+        <button id="closeFilm" aria-label="Close film">Close ×</button>
+      </div>
+      <div id="filmFrame"></div>
+      <p>
+        Film won’t load?
+        <a
+          id="youtubeLink"
+          href="https://www.youtube.com"
+          target="_blank"
+          rel="noopener"
+          >Watch on YouTube ↗</a
+        >
+      </p>
+    </dialog>
+    <noscript
+      ><style>
+        .menu-toggle,
+        .scene-tabs,
+        .stage-hint,
+        .share-demo,
+        .product-choices,
+        .film-grid button {
+          display: none;
+        }
+      </style>
+      <p style="padding: 24px">
+        Explore the
+        <a href="https://www.bendac.tech/products">full Bendac range ↗</a> or
+        <a href="https://www.youtube.com/watch?v=y1r_FnzCGS0"
+          >watch the brand film ↗</a
+        >.
+      </p></noscript
+    >
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+{
+  "updated": "2026-11-05",
+  "statuses": ["In progress", "Finished", "Study"],
+  "projects": [
+    {
+      "id": "bendac",
+      "name": "Bendac website",
+      "line": "A new website for Bendac, the LED screen company.",
+      "dates": "Oct 27 to Nov 2, 2026",
+      "status": "In progress",
+      "items": [
+        { "name": "Every version", "line": "All 12 versions side by side. Tap one to open it.", "date": "Oct 27 to Nov 2", "status": "In progress", "url": "bendac/", "thumb": "bendac-all", "lead": true },
+        { "name": "Phone first site", "line": "Version 2 on its own address. Best on a phone.", "date": "Oct 30", "status": "In progress", "url": "https://bendac-reimagined.recoilmaster69.chatgpt.site", "thumb": "bendac-phone-first" },
+        { "name": "Stadium render tests", "line": "Blender renders of Bendac boards in a stadium.", "date": "Nov 1", "status": "Study", "url": "bendac/renders/", "thumb": "bendac-renders" },
+        { "name": "Earlier public copies", "line": "The first public links to versions 1, 3, 4 and 5.", "date": "Nov 1 to 5", "status": "In progress", "url": "https://hugoboss23-5.github.io/bendac-preview/versions.html", "thumb": "bendac-preview" }
+      ],
+      "versions": {
+        "title": "The 12 versions",
+        "base": "bendac/",
+        "list": [
+          { "folder": "v1-first", "tag": "v1", "date": "Oct 27", "name": "First cut" },
+          { "folder": "v1", "tag": "v1", "date": "Oct 27", "name": "Live LED wall" },
+          { "folder": "v2", "tag": "v2", "date": "Oct 30", "name": "Phone first" },
+          { "folder": "v3-sketch-a", "tag": "v3 sketch A", "date": "Oct 31", "name": "Step back" },
+          { "folder": "v3-sketch-b", "tag": "v3 sketch B", "date": "Oct 31", "name": "Lights on" },
+          { "folder": "v3-sketch-c", "tag": "v3 sketch C", "date": "Oct 31", "name": "Built to fit" },
+          { "folder": "v3-film-1", "tag": "v3", "date": "Oct 31", "name": "One film, first cut" },
+          { "folder": "v3", "tag": "v3", "date": "Nov 1", "name": "One film" },
+          { "folder": "v4-d1", "tag": "v4 D1", "date": "Nov 1", "name": "The website is a screen" },
+          { "folder": "v4-d2", "tag": "v4 D2", "date": "Nov 1", "name": "The perfect pixel" },
+          { "folder": "v4-d3", "tag": "v4 D3", "date": "Nov 1", "name": "Lights on, for real" },
+          { "folder": "v5", "tag": "v5", "date": "Nov 1", "name": "Daylight stadium" }
+        ]
+      }
+    },
+    {
+      "id": "tennessee",
+      "name": "Tennessee campus",
+      "line": "Our Campus, Middle Tennessee: the campus model and its drone film.",
+      "dates": "Oct 10 to 27, 2026",
+      "status": "In progress",
+      "items": [
+        { "name": "Drone preview", "line": "A working preview of the drone flyover.", "date": "Oct 12", "status": "In progress", "url": "tennessee-campus-preview/", "thumb": "tennessee-preview", "lead": true }
+      ],
+      "note": "The model files and films are private for now."
+    },
+    {
+      "id": "layouts",
+      "name": "Worldwide Stages layouts",
+      "line": "Six layouts for a new Worldwide Stages campus, for contractor pricing.",
+      "dates": "Oct 1 to 4, 2026",
+      "status": "Study",
+      "items": [
+        { "name": "Six options in 3D", "line": "Each layout in 3D, with plans and downloads.", "date": "Oct 1", "status": "Study", "url": "worldwide-stages-six-options/", "thumb": "six-options", "lead": true },
+        { "name": "Six options compared", "line": "All six on two pages, side by side. PDF.", "date": "Oct 2", "status": "Study", "url": "worldwide-stages-six-options/assets/six-options-comparison.pdf", "thumb": "six-options-pdf" }
+      ]
+    },
+    {
+      "id": "worldwide",
+      "name": "Worldwide Stages campus and deck",
+      "line": "The campus as it stands today in 3D, and the investor deck built on it.",
+      "dates": "Sep 14 to 15, 2026",
+      "status": "Finished",
+      "items": [
+        { "name": "Existing campus in 3D", "line": "A model you can turn, beside the source photos.", "date": "Sep 15", "status": "Finished", "url": "worldwide-stages-existing-campus/Viewer/", "thumb": "existing-viewer", "lead": true },
+        { "name": "Investor deck, Indigo and Pearl", "line": "The latest investor deck. 23 slides, PDF.", "date": "Sep 15", "status": "Finished", "url": "worldwide-stages-presentation/investor-deck-indigo-and-pearl.pdf", "thumb": "deck-indigo-pearl" },
+        { "name": "Investor deck, Forest and Linen", "line": "An earlier cut in green and linen. 17 slides.", "date": "Sep 15", "status": "Finished", "url": "worldwide-stages-presentation/investor-deck-forest-and-linen.pdf", "thumb": "deck-forest-linen" },
+        { "name": "Investor deck, Cobalt and Porcelain", "line": "An earlier cut in blue and porcelain. 17 slides.", "date": "Sep 15", "status": "Finished", "url": "worldwide-stages-presentation/investor-deck-cobalt-and-porcelain.pdf", "thumb": "deck-cobalt-porcelain" },
+        { "name": "Investor discussion", "line": "The deck before the color pass. 19 slides.", "date": "Sep 15", "status": "Finished", "url": "worldwide-stages-presentation/investor-discussion.pdf", "thumb": "deck-investor-discussion" },
+        { "name": "Five color directions", "line": "Five color looks for the deck, one page each.", "date": "Sep 15", "status": "Study", "url": "worldwide-stages-presentation/five-color-directions.pdf", "thumb": "colors-five" },
+        { "name": "Color shortlist", "line": "The three colors picked from the five.", "date": "Sep 15", "status": "Study", "url": "worldwide-stages-presentation/color-shortlist.pdf", "thumb": "colors-shortlist" },
+        { "name": "Campus aerial render", "line": "Blender render from above. Large image, 12 MB.", "date": "Sep 15", "status": "Finished", "url": "worldwide-stages-existing-campus/01%20-%20Campus%20Aerial.png", "thumb": "render-aerial" },
+        { "name": "Pond and atrium render", "line": "Blender render at the pond. Large image, 12 MB.", "date": "Sep 15", "status": "Finished", "url": "worldwide-stages-existing-campus/02%20-%20Pond%20and%20Atrium.png", "thumb": "render-pond" }
+      ],
+      "files": [
+        { "name": "Campus model, Blender master", "kind": "BLEND, 59 MB", "url": "worldwide-stages-existing-campus/Worldwide%20Stages%20-%20Existing%20Campus.blend" },
+        { "name": "Campus model with grounds", "kind": "GLB, 51 MB", "url": "worldwide-stages-existing-campus/Worldwide%20Stages%20-%20Existing%20Campus.glb" },
+        { "name": "Building only model", "kind": "GLB, 1.8 MB", "url": "worldwide-stages-existing-campus/Worldwide%20Stages%20-%20Building%20Only.glb" },
+        { "name": "How the model was made", "kind": "TXT", "url": "worldwide-stages-existing-campus/Source%20notes.txt" }
+      ]
+    },
+    {
+      "id": "ace",
+      "name": "Ace Mission campus",
+      "line": "The Ace Mission Studios campus, rebuilt in 3D inside and out.",
+      "dates": "Aug 13 to Sep 5, 2026",
+      "status": "Finished",
+      "items": [
+        { "name": "Campus model", "line": "Every building and lot, rebuilt from the site plans.", "date": "Sep 5", "status": "Finished", "url": "ace-mission-model/", "thumb": "ace-model", "lead": true },
+        { "name": "Inside the buildings", "line": "Guided walks inside 19 spaces on the campus.", "date": "Sep 5", "status": "Finished", "url": "ace-mission-interiors/", "thumb": "ace-interiors" },
+        { "name": "Flythrough website", "line": "The earlier Ace Mission Studios website.", "date": "Aug 13", "status": "Finished", "url": "https://hugoboss23-5.github.io/ace-mission-flythrough/", "thumb": "ace-flythrough" }
+      ]
+    }
+  ]
+}

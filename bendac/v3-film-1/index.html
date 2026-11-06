@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:,">
+<title>Bendac · The Perfect Pixel People</title>
+<style>
+@font-face{font-family:Archivo;src:url(fonts/archivo-latin-var.woff2) format('woff2');font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:JB;src:url(fonts/jbmono-latin-var.woff2) format('woff2');font-weight:100 800;font-display:swap}
+:root{--g:#029046;--glow:#2bea66;--ink:#eef2ee;--dim:rgba(238,242,238,.62);--mute:#8d9a93;--pad:clamp(18px,4.4vw,48px);--bar:76px}
+*{box-sizing:border-box}
+html,body{margin:0;background:#000;color:var(--ink);-webkit-text-size-adjust:100%}
+body{font:16px/1.4 Archivo,system-ui,sans-serif;overflow-x:hidden}
+.mono{font-family:JB,ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+
+/* ---------------- half 1: the film. In normal flow at the top of the page; nothing here is pinned to the window. */
+#film{position:relative;height:100vh;height:100svh;min-height:520px;overflow:hidden;background:#000;isolation:isolate}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+#film .ov{position:absolute;z-index:3;pointer-events:none}
+/* acts not on screen stay laid out but hidden: their pictures are decoded at load, not at the join */
+.act{visibility:hidden}
+.act.on{visibility:visible}
+#fhead{position:absolute;z-index:6;top:calc(16px + env(safe-area-inset-top));left:var(--pad);display:flex;flex-direction:column;align-items:flex-start;gap:7px;pointer-events:none}
+#fhead img{height:17px;width:auto;display:block}
+#fhead .mono{color:var(--dim)}
+.shade{position:absolute;left:0;right:0;bottom:0;height:52%;z-index:2;pointer-events:none;background:linear-gradient(to top,rgba(3,5,4,.94),rgba(3,5,4,.7) 45%,transparent);opacity:0;transition:opacity .5s}
+.shade.on{opacity:1}
+@media (min-width:900px){.shade{top:0;right:auto;width:48%;height:auto;background:linear-gradient(to right,rgba(3,5,4,.86),rgba(3,5,4,.5) 60%,transparent)}}
+
+/* controls */
+#ctl{position:absolute;z-index:8;left:0;right:0;bottom:0;padding:10px var(--pad) calc(12px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;background:linear-gradient(to top,rgba(0,0,0,.55),transparent)}
+.cbtn{appearance:none;border:1px solid rgba(238,242,238,.25);background:rgba(8,10,9,.55);color:var(--ink);border-radius:999px;height:38px;min-width:38px;padding:0 13px;display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font:600 13px/1 Archivo,sans-serif;white-space:nowrap}
+.cbtn svg{width:14px;height:14px;display:block}
+#play{width:38px;padding:0}
+#play.again{width:auto;padding:0 14px}
+#skip.go{background:var(--g);border-color:var(--g);color:#fff;padding:0 16px}
+#skip.go .arr{display:inline-block;animation:bob 1.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(3px)}}
+#prog{position:relative;flex:1;height:38px}
+#prog .track{position:absolute;left:0;right:0;top:12px;height:3px;border-radius:2px;background:rgba(238,242,238,.2);overflow:hidden}
+#prog .fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--glow)}
+.mark{position:absolute;top:0;height:38px;padding:0;appearance:none;background:none;border:0;cursor:pointer;color:var(--dim);display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.mark::before{content:'';display:block;width:2px;height:13px;margin-top:7px;background:rgba(238,242,238,.75);border-radius:1px}
+.mark span{white-space:nowrap}
+.mark[aria-current=true]{color:var(--ink)}
+.mark[aria-current=true]::before{background:var(--glow)}
+#rmnav{display:none}
+body.rm #rmnav{display:flex;gap:6px}
+.cbtn:disabled{opacity:.35;cursor:default}
+body.rm #play{display:none}
+@media (max-width:420px){.mark .lbl{display:none}}
+
+/* act A: one light */
+#a-c1,#a-c2{left:var(--pad);right:var(--pad);opacity:0}
+#a-c1{bottom:calc(var(--bar) + 10vh)}
+#a-c2{bottom:calc(var(--bar) + 6vh)}
+#ovA h1,#ovA h2{margin:0;font-weight:500;font-stretch:112%;letter-spacing:-.02em;line-height:.98}
+#ovA h1{font-size:clamp(38px,10.5vw,96px)}
+#ovA h2{font-size:clamp(30px,8vw,72px)}
+#ovA .line{display:block}
+#ovA p{margin:14px 0 0;max-width:30em;color:var(--dim);font-size:clamp(15px,4vw,18px);line-height:1.45}
+#ovA p.cap{margin-top:10px;font-size:10.5px;color:rgba(242,245,243,.55);line-height:1.5}
+#a-dist{right:var(--pad);top:calc(18px + env(safe-area-inset-top));color:var(--dim);text-align:right}
+#a-dist b{color:var(--ink);font-weight:500}
+@media (min-width:900px){#a-c1,#a-c2{max-width:56vw}}
+
+/* act B: lights on */
+#b-lead{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;overflow:visible}
+#b-lead line{stroke:rgba(238,242,238,.5);stroke-width:1}
+#b-lead circle{fill:none;stroke:var(--glow);stroke-width:1.2}
+.lab{left:var(--pad);bottom:calc(var(--bar) + 14px);max-width:330px;opacity:0;will-change:opacity,transform}
+.lab .k{color:var(--glow);margin-bottom:8px}
+.lab .t{font-size:25px;line-height:1.12;font-weight:560;letter-spacing:-.01em}
+.lab .s{margin-top:9px;color:var(--dim);font-size:13.5px;line-height:1.35}
+.lab figure{margin:12px 0 0;display:flex;gap:10px;align-items:flex-end}
+.lab figure img{width:132px;height:66px;object-fit:cover;display:block;border-radius:2px;outline:1px solid rgba(255,255,255,.18)}
+.lab figcaption{color:var(--dim);line-height:1.5}
+#b-end .t{font-size:34px;line-height:1.04;font-weight:600;letter-spacing:-.02em}
+@media (min-width:900px){
+  .lab{bottom:auto;top:46%;transform:translateY(-50%);max-width:400px}
+  .lab .t{font-size:36px}
+  .lab .s{font-size:15px}
+  .lab figure img{width:180px;height:90px}
+  #b-end .t{font-size:56px}
+}
+
+/* act C: built to fit */
+.copy{left:var(--pad);right:var(--pad);bottom:calc(var(--bar) + 12px);opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .6s cubic-bezier(.2,.7,.1,1)}
+.copy.on{opacity:1;transform:none}
+.copy .kick{color:var(--glow);margin:0 0 10px}
+.copy h2{font-weight:500;font-stretch:92%;font-size:25px;line-height:1.12;letter-spacing:-.01em;margin:0 0 10px;max-width:22ch}
+.copy p{margin:0;color:#c3ccc6;font-size:15px;line-height:1.45;max-width:34ch}
+.copy p+p{margin-top:6px}
+.copy .small{color:var(--mute);font-size:13px}
+.copy.has-photo{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:end}
+.real{margin:0;width:92px}
+.real img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:6px;border:1px solid rgba(222,255,236,.22)}
+.real figcaption{margin-top:6px;color:var(--mute);font-size:9.5px;line-height:1.35}
+.tag{left:0;top:0;display:flex;align-items:center;gap:6px;opacity:0;transition:opacity .35s;color:var(--ink);white-space:nowrap;will-change:transform}
+#c-lines{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;overflow:visible;transition:opacity .35s}
+#c-lines line{stroke:rgba(238,244,240,.5);stroke-width:1}
+#c-lines circle{fill:var(--glow)}
+#c-hint{left:50%;transform:translate(-50%,0);color:var(--mute);display:flex;align-items:center;gap:8px;transition:opacity .5s;white-space:nowrap;opacity:0}
+#c-hint svg{width:34px;height:12px}
+@media (min-width:900px){
+  .copy{left:auto;right:var(--pad);bottom:auto;top:46%;width:min(30vw,440px);transform:translateY(calc(-50% + 14px))}
+  .copy.on{transform:translateY(-50%)}
+  .copy h2{font-size:clamp(30px,2.7vw,42px)}
+  .copy p{font-size:16px}
+  .copy.has-photo{display:block}
+  .real{width:200px;margin-top:22px}
+  .real figcaption{font-size:11px}
+}
+
+/* ---------------- half 2: a normal page in document flow */
+#half2{position:relative;z-index:1;background:#050706}
+.sec{padding:clamp(56px,10vw,120px) var(--pad);max-width:1180px;margin:0 auto}
+.kick{color:var(--glow)}
+#picker h2,#closing h2{margin:10px 0 12px;font-weight:500;font-stretch:112%;letter-spacing:-.02em;line-height:1}
+#picker h2{font-size:clamp(34px,8vw,72px)}
+#picker .lead{color:var(--dim);max-width:34em;margin:0 0 22px;font-size:clamp(15px,4vw,18px)}
+#pbox{position:relative;width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.08)}
+#pgl{position:absolute;inset:0;width:100%;height:100%;display:block}
+#pdist{position:absolute;left:14px;top:12px;color:var(--dim)}
+#pdist b{color:var(--ink);font-weight:500}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 0}
+.chip{appearance:none;border:1px solid rgba(255,255,255,.22);background:rgba(10,12,11,.55);color:var(--ink);border-radius:999px;padding:11px 14px;font:500 14px/1 Archivo,sans-serif;cursor:pointer;transition:background .25s,border-color .25s;text-align:left}
+.chip small{display:block;margin-top:4px;color:var(--dim);font:400 10px/1 JB,monospace;letter-spacing:.06em;text-transform:uppercase}
+.chip[aria-pressed=true]{background:var(--ink);color:#050605;border-color:var(--ink)}
+.chip[aria-pressed=true] small{color:rgba(5,6,5,.6)}
+#card{margin-top:14px;display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:end;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+#card .prod{font:600 22px/1 Archivo,sans-serif;font-stretch:115%}
+#card .spec{color:var(--dim);margin-top:6px}
+#card .fact{grid-column:1/-1;font-size:14px;line-height:1.4}
+.cta{appearance:none;border:0;border-radius:999px;background:var(--g);color:#fff;padding:12px 16px;font:600 14px/1 Archivo,sans-serif;cursor:pointer;white-space:nowrap}
+@media (min-width:900px){
+  #picker .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:end}
+  #pbox{aspect-ratio:16/10}
+}
+#closing{border-top:1px solid rgba(255,255,255,.08)}
+#closing h2{font-size:clamp(34px,9vw,84px)}
+#closing h2 .line{display:block}
+#closing .lead{color:var(--dim);max-width:32em;font-size:clamp(15px,4vw,18px);margin:0 0 26px}
+#closing ol{list-style:none;margin:0 0 26px;padding:0;border-top:1px solid rgba(238,242,238,.14)}
+#closing li{display:grid;grid-template-columns:34px 1fr;gap:2px 10px;padding:11px 0;border-bottom:1px solid rgba(238,242,238,.14)}
+#closing li b{grid-row:span 2;font:500 11px/1.9 JB,monospace;color:var(--glow);letter-spacing:.1em}
+#closing li span{font-size:17px;font-weight:560}
+#closing li em{font-style:normal;color:var(--dim);font-size:13.5px}
+.contact{display:grid;gap:8px;font-size:17px;font-weight:540;margin:0 0 24px}
+.contact .mono{display:inline-block;width:100px;color:var(--dim);font-weight:400}
+#closing .cta{padding:15px 22px;font-size:16px}
+#closing .last{margin:30px 0 0;color:var(--mute)}
+/* room after the last line, so it can be scrolled clear of anything an app lays over the bottom of the page */
+#half2{padding-bottom:calc(190px + env(safe-area-inset-bottom))}
+@media (min-width:900px){#closing .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 72px;align-items:start}#closing h2{font-size:clamp(48px,6.4vw,84px)}}
+
+/* contact panel (the only fixed thing below the film, and it scrolls inside) */
+#scrim{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .4s}
+#scrim.on{opacity:1;pointer-events:auto}
+#panel{position:fixed;inset:auto 0 0 0;z-index:21;transform:translateY(102%);visibility:hidden;transition:transform .55s cubic-bezier(.2,.8,.2,1),visibility 0s .55s;background:#0b0d0c;border-top:1px solid rgba(255,255,255,.1);border-radius:20px 20px 0 0;padding:22px var(--pad) calc(26px + env(safe-area-inset-bottom));max-height:88vh;max-height:88svh;overflow:auto;overscroll-behavior:contain}
+#panel.open{transform:none;visibility:visible;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+#panel h3{margin:0 0 6px;font:600 26px/1.05 Archivo,sans-serif;font-stretch:112%;padding-right:44px}
+#panel p{margin:0 0 14px;color:var(--dim);line-height:1.45}
+#panel ol{margin:0 0 16px;padding-left:20px;line-height:1.6}
+#panel .row{display:flex;gap:10px;flex-wrap:wrap}
+#panel .row div{flex:1 1 200px;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px}
+#close{position:absolute;top:14px;right:var(--pad);appearance:none;border:1px solid rgba(255,255,255,.2);background:none;color:var(--ink);border-radius:999px;width:38px;height:38px;font-size:18px;cursor:pointer}
+@media (min-width:900px){#panel{left:auto;right:var(--pad);bottom:var(--pad);width:520px;border-radius:20px;border:1px solid rgba(255,255,255,.1);transform:translateY(calc(100% + 60px))}}
+@media (prefers-reduced-motion:reduce){#panel,#panel.open,.copy{transition:none}#skip.go .arr{animation:none}}
+.vids{position:absolute;left:0;top:0;width:2px;height:2px;opacity:.01;pointer-events:none;overflow:hidden}
+.vids video{width:2px;height:2px}
+#nogl{display:none;position:absolute;inset:0;z-index:9;align-items:center;justify-content:center;padding:32px;text-align:center;color:var(--dim)}
+</style>
+</head>
+<body>
+<section id="film" aria-label="Bendac film: one light, lights on, built to fit">
+  <canvas id="gl" aria-label="A film in 3D: one LED light, a stadium whose Bendac screens switch on, and a cabinet that comes apart and builds a wall and a staircase. The pointer or a finger moves the light and turns the cabinet."></canvas>
+  <div class="shade" id="shade"></div>
+  <div id="fhead"><img src="media/logo-bendac-white.webp" alt="Bendac" width="97" height="30"><span class="mono">The Perfect Pixel People</span></div>
+
+  <!-- act 1: one light -->
+  <div class="act" id="ovA">
+    <div class="ov mono" id="a-dist"><b>6 mm</b> from the screen</div>
+    <section class="ov" id="a-c1" aria-label="One light"><h1><span class="line">Every picture</span><span class="line">starts with</span><span class="line">one light.</span></h1></section>
+    <section class="ov" id="a-c2" aria-label="Step back">
+      <h2><span class="line">Step back and</span><span class="line">the lights become</span><span class="line">a picture.</span></h2>
+      <p>The gap between the lights is the pixel pitch. Bendac builds screens from 0.4 mm to 10 mm, each set for how far away its viewers stand.</p>
+      <p class="mono cap">On this wall: AccuVision, built for BMW M Motorsport. 0.9 mm pitch, 210° curve.</p>
+    </section>
+  </div>
+
+  <!-- act 2: lights on -->
+  <div class="act" id="ovB">
+    <svg id="b-lead" aria-hidden="true"><line id="b-ll" x1="0" y1="0" x2="0" y2="0" opacity="0"/><circle id="b-lc" r="5" cx="-20" cy="-20" opacity="0"/></svg>
+    <div class="ov lab" id="b-l1"><div class="k mono">01 &nbsp;One pixel</div><div class="t">One of the 250M+ pixels Bendac have installed.</div></div>
+    <div class="ov lab" id="b-l2"><div class="k mono">02 &nbsp;Plymouth Argyle, Home Park</div><div class="t">A 45 sqm big screen.</div><div class="s">On screen: Home Park itself, from Bendac's own film.</div></div>
+    <div class="ov lab" id="b-l3"><div class="k mono">03 &nbsp;IMPAKT perimeter, AFC Wimbledon</div><div class="t">Pitchside LED, up to 8,000 nits.</div>
+      <figure><img src="media/plough-lane.jpg" alt="IMPAKT perimeter screens at Plough Lane, AFC Wimbledon, as shown on Bendac's IMPAKT page" width="600" height="300"><figcaption class="mono">Plough Lane, from<br>Bendac's IMPAKT page</figcaption></figure></div>
+    <div class="ov lab" id="b-end"><div class="k mono">Bendac &nbsp;·&nbsp; 25+ years of LED experience</div><div class="t">Premium LED screen providers.</div></div>
+  </div>
+
+  <!-- act 3: built to fit -->
+  <div class="act" id="ovC">
+    <svg id="c-lines" aria-hidden="true"></svg>
+    <div class="ov tag mono" data-layer="0">Mask</div>
+    <div class="ov tag mono" data-layer="1">Diodes</div>
+    <div class="ov tag mono" data-layer="2">Module board</div>
+    <div class="ov tag mono" data-layer="3">Die-cast frame</div>
+    <div class="ov mono" id="c-hint"><svg viewBox="0 0 34 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 6h32M5 2L1 6l4 4M29 2l4 4-4 4"/></svg>Drag to turn it</div>
+    <section class="ov copy" data-step="0"><p class="kick mono">01 &nbsp;One cabinet</p><h2>This screen is made of cabinets.</h2><p>Designed by our in-house experts. Pixel pitches from 0.4mm indoors to 10mm outdoors.</p></section>
+    <section class="ov copy" data-step="1"><p class="kick mono">02 &nbsp;Built and installed</p><h2>From conceptual design and planning, through to installation and commissioning.</h2><p class="small">On the wall: Bendac's own install, filmed as a time-lapse. 250M+ pixels installed so far.</p></section>
+    <section class="ov copy has-photo" data-step="2"><div><p class="kick mono">03 &nbsp;Built to fit</p><h2>Google YouTube, Berlin.</h2><p>22 bespoke LED steps on 2.5mm modules.</p><p class="small">Then our in-house after-care team looks after it.</p></div>
+      <figure class="real"><img src="media/case-google-stairs-3.webp" alt="The real Bendac LED staircase at Google YouTube in Berlin" width="1000" height="1333"><figcaption>The real staircase, photographed in Berlin</figcaption></figure></section>
+  </div>
+
+  <div id="ctl" role="group" aria-label="Film controls">
+    <button class="cbtn" id="play" aria-label="Pause"><svg viewBox="0 0 14 14" fill="currentColor"><rect x="2.5" y="2" width="3" height="10" rx=".6"/><rect x="8.5" y="2" width="3" height="10" rx=".6"/></svg></button>
+    <div id="rmnav"><button class="cbtn" id="back" aria-label="Back"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.8 2.5 4.3 7l4.5 4.5"/></svg></button><button class="cbtn" id="next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.2 2.5 9.7 7l-4.5 4.5"/></svg></button></div>
+    <div id="prog">
+      <div class="track"><div class="fill" id="fill"></div></div>
+      <button class="mark mono" data-ch="0" aria-label="Chapter 1: One light"><span><span class="n">01</span> <span class="lbl">One light</span></span></button>
+      <button class="mark mono" data-ch="1" aria-label="Chapter 2: Lights on"><span><span class="n">02</span> <span class="lbl">Lights on</span></span></button>
+      <button class="mark mono" data-ch="2" aria-label="Chapter 3: Built to fit"><span><span class="n">03</span> <span class="lbl">Built to fit</span></span></button>
+    </div>
+    <button class="cbtn" id="skip"><span class="txt">Skip</span><span class="arr" aria-hidden="true">↓</span></button>
+  </div>
+  <div id="nogl">This film needs WebGL. Scroll down for the distance picker and how to start a project.</div>
+</section>
+
+<main id="half2">
+  <section class="sec" id="picker" aria-labelledby="pk-h">
+    <div class="kick mono">Which screen fits your place</div>
+    <h2 id="pk-h">How far away are your viewers?</h2>
+    <p class="lead">The closer your viewers stand, the finer the pixel pitch you need. Pick a distance.</p>
+    <div class="grid">
+      <div id="pbox"><canvas id="pgl" aria-label="A Bendac LED wall playing real footage, sized for the distance you pick"></canvas><div id="pdist" class="mono">Viewers at <b>about 3 m</b></div></div>
+      <div>
+        <div class="chips" role="group" aria-label="Choose a viewing distance">
+          <button class="chip" data-k="board" aria-pressed="true">About 3 m<small>Boardroom</small></button>
+          <button class="chip" data-k="visit" aria-pressed="false">About 8 m<small>Visitor centre</small></button>
+          <button class="chip" data-k="stadium" aria-pressed="false">40 m and more<small>Stadium</small></button>
+        </div>
+        <div id="card" aria-live="polite">
+          <div><div class="prod" id="prod">Krystl</div><div class="spec mono" id="spec">Indoor · 0.4 mm and up</div></div>
+          <button class="cta" id="talk">Start a project</button>
+          <div class="fact" id="fact">Vinson &amp; Elkins are big users of Krystl: 16 screens across 5 locations.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="closing" aria-labelledby="cl-h">
+    <div class="kick mono">Start a project</div>
+    <h2 id="cl-h"><span class="line">Design. Build.</span><span class="line">Install. Look after.</span></h2>
+    <div class="grid">
+      <div>
+        <p class="lead">One in-house team plans, builds and commissions every Bendac screen, then keeps it perfect with its own after-care. 25+ years of LED experience, 250M+ pixels installed.</p>
+        <button class="cta" id="talk2">Start a project</button>
+      </div>
+      <div>
+        <ol>
+          <li><b>01</b><span>Free site survey</span><em>At no additional charge.</em></li>
+          <li><b>02</b><span>Design and planning</span><em>By Bendac's in-house experts.</em></li>
+          <li><b>03</b><span>Installation and commissioning</span><em>A full turnkey solution.</em></li>
+          <li><b>04</b><span>In-house after-care</span><em>By Bendac's in-house after-care team.</em></li>
+        </ol>
+        <div class="contact">
+          <div><span class="mono">Call</span>01225 698 188</div>
+          <div><span class="mono">Email</span>info@bendac.tech</div>
+          <div><span class="mono">Head office</span>Monckton House, Trowbridge, BA14 0XG</div>
+        </div>
+      </div>
+    </div>
+    <p class="last mono" id="lastline">Bendac · The Perfect Pixel People · London hub, Farringdon · Northern hub, Bolton</p>
+  </section>
+</main>
+
+<div id="scrim"></div>
+<aside id="panel" role="dialog" aria-modal="true" aria-labelledby="ph" aria-hidden="true">
+  <button id="close" aria-label="Close">×</button>
+  <h3 id="ph">Start a project</h3>
+  <p id="pctx">Tell us about your venue. Every project starts with a free site survey.</p>
+  <ol>
+    <li>A free site survey of your space.</li>
+    <li>Design and planning, by Bendac's in-house team.</li>
+    <li>Installation and commissioning.</li>
+    <li>After-care from the same team.</li>
+  </ol>
+  <div class="row">
+    <div><span class="mono" style="color:var(--dim)">Call</span><br>01225 698 188</div>
+    <div><span class="mono" style="color:var(--dim)">Email</span><br>info@bendac.tech</div>
+  </div>
+  <p style="margin-top:14px" class="mono">Monckton House, Trowbridge · London hub, Farringdon · Northern hub, Bolton</p>
+</aside>
+
+<div class="vids" aria-hidden="true">
+  <video id="v-acc" src="media/accuvision.mp4" muted playsinline webkit-playsinline loop preload="auto"></video>
+  <video id="v-venue" src="media/venue.mp4" muted playsinline webkit-playsinline loop preload="auto"></video>
+  <video id="v-install" src="media/install.mp4" muted playsinline webkit-playsinline preload="auto"></video>
+  <video id="v-board" src="media/boardroom.mp4" muted playsinline webkit-playsinline loop preload="auto"></video>
+  <video id="v-visit" src="media/ksc.mp4" muted playsinline webkit-playsinline loop preload="auto"></video>
+  <video id="v-stadium" src="media/stadium.mp4" muted playsinline webkit-playsinline loop preload="auto"></video>
+</div>
+
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+<script type="module" src="js/core.js"></script>
+<script type="module" src="js/colors.js"></script>
+<script type="module" src="js/actA.js"></script>
+<script type="module" src="js/actB.js"></script>
+<script type="module" src="js/actC.js"></script>
+<script type="module" src="js/director.js"></script>
+<script type="module" src="js/picker.js"></script>
+</body>
+</html>

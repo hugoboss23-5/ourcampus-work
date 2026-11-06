@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../_a/icon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Bendac · The Perfect Pixel People</title>
+<style>
+@font-face{font-family:"Michroma";src:url(fonts/michroma-400.woff2) format("woff2");font-weight:400;font-display:block}
+@font-face{font-family:"Inter";src:url(fonts/inter-var.woff2) format("woff2");font-weight:100 900;font-display:block}
+@font-face{font-family:"Space Mono";src:url(fonts/space-mono-400.woff2) format("woff2");font-weight:400;font-display:block}
+@font-face{font-family:"Space Mono";src:url(fonts/space-mono-700.woff2) format("woff2");font-weight:700;font-display:block}
+:root{--ink:#f4f6f5;--dim:rgba(244,246,245,.78);--pad:clamp(16px,4.4vw,36px);--top:env(safe-area-inset-top);--bot:env(safe-area-inset-bottom)}
+*{box-sizing:border-box}
+html{scroll-snap-type:y mandatory;background:#000}
+html,body{margin:0;color:var(--ink);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body{font-family:"Inter",system-ui,sans-serif;overscroll-behavior-y:none}
+canvas#wall{position:fixed;inset:0;width:100vw;height:100vh;height:100lvh;display:block;touch-action:pan-y;cursor:none}
+@media (hover:none){canvas#wall{cursor:auto}}
+section.stop{height:100vh;height:100svh;scroll-snap-align:start;scroll-snap-stop:always;position:relative;pointer-events:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mono{font-family:"Space Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.hud{position:fixed;z-index:3;pointer-events:none;text-shadow:0 0 1px rgba(0,0,0,.95),0 0 3px rgba(0,0,0,.7),0 1px 10px rgba(0,0,0,.6)}
+.hud a,.hud button{pointer-events:auto}
+#logo{top:calc(var(--pad) + var(--top));left:var(--pad)}
+#logo img{height:17px;display:block}
+#talk{top:calc(var(--pad) + var(--top) - 9px);right:var(--pad)}
+.pill{appearance:none;display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(244,246,245,.55);background:rgba(0,0,0,.18);color:var(--ink);border-radius:999px;padding:10px 14px;font:700 10.5px/1 "Space Mono",monospace;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.pill:hover{background:var(--ink);color:#000;border-color:var(--ink)}
+.pill:focus-visible,.stopbtn:focus-visible,.cta:focus-visible{outline:2px solid #2ee66e;outline-offset:3px}
+.pill i{width:6px;height:6px;border-radius:50%;background:#2ee66e;box-shadow:0 0 8px #2ee66e;display:block}
+/* pitch gauge: the page's only control besides the pill */
+#gauge{left:var(--pad);right:var(--pad);bottom:calc(var(--pad) + var(--bot));display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:end}
+#readout{display:flex;flex-direction:column;gap:5px}
+#readout .k{color:var(--dim);font-size:10px}
+#readout .v{font:400 22px/1 "Michroma",sans-serif;letter-spacing:.02em;white-space:nowrap}
+#readout .v small{font:700 11px/1 "Space Mono",monospace;letter-spacing:.08em;margin-left:4px}
+#rule{position:relative;height:40px}
+#rule .line{position:absolute;left:0;right:0;bottom:6px;height:1px;background:rgba(244,246,245,.45)}
+#rule .mark{position:absolute;bottom:2px;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:#fff;box-shadow:0 0 10px rgba(255,255,255,.9)}
+.stopbtn{position:absolute;bottom:0;transform:translateX(-50%);appearance:none;border:0;background:none;color:var(--dim);padding:0;height:40px;min-width:44px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;cursor:pointer;font:700 10px/1 "Space Mono",monospace;letter-spacing:.08em;text-transform:uppercase;text-shadow:inherit}
+.stopbtn .nm{white-space:nowrap;margin-bottom:8px}
+.stopbtn .tick{width:1px;height:11px;background:currentColor;margin-bottom:1px}
+.stopbtn[aria-current=true]{color:var(--ink)}
+.stopbtn:first-of-type{transform:none;align-items:flex-start}
+.stopbtn:last-of-type{transform:translateX(-100%);align-items:flex-end}
+#caption{left:var(--pad);right:var(--pad);bottom:calc(var(--pad) + var(--bot) + 66px);font-size:13px;line-height:1.4;color:var(--ink);max-width:28em;text-wrap:balance;transition:opacity .35s}
+#lens{z-index:4;left:0;top:0;color:var(--ink);font-size:10px;white-space:nowrap;will-change:transform;opacity:0;transition:opacity .3s}
+/* the end: real links over the wall's own "Start a project" */
+#cta{left:var(--pad);right:var(--pad);bottom:calc(var(--pad) + var(--bot) + 66px);display:flex;flex-wrap:wrap;gap:10px;opacity:0;transform:translateY(10px);transition:opacity .45s,transform .45s;visibility:hidden}
+#cta.on{opacity:1;transform:none;visibility:visible}
+.cta{display:inline-flex;flex-direction:column;gap:6px;padding:14px 16px;min-width:150px;border-radius:14px;border:1px solid rgba(244,246,245,.4);background:rgba(0,0,0,.22);color:var(--ink);text-decoration:none;font:500 16px/1.1 "Inter",sans-serif;transition:background .25s,color .25s}
+.cta .mono{color:var(--dim);font-size:10px}
+.cta:hover{background:var(--ink);color:#000}.cta:hover .mono{color:rgba(0,0,0,.6)}
+.cta.primary{background:var(--ink);color:#000;border-color:var(--ink)}.cta.primary .mono{color:rgba(0,0,0,.6)}
+#cta p{flex-basis:100%;margin:2px 0 0;color:var(--ink);font-size:12.5px;line-height:1.45}
+@media (min-width:900px){
+  #logo img{height:20px}
+  #gauge{left:auto;width:min(560px,46vw)}
+  #caption{left:var(--pad);bottom:calc(var(--pad) + var(--bot) + 4px);max-width:36em;font-size:14px}
+  #cta{left:var(--pad);right:auto;bottom:calc(var(--pad) + var(--bot));max-width:560px}
+  #readout .v{font-size:26px}
+}
+@media (max-height:700px) and (max-width:899px){
+  #caption{bottom:calc(var(--pad) + var(--bot) + 60px);font-size:12.5px}
+  #cta{bottom:calc(var(--pad) + var(--bot) + 60px)}
+  .cta{padding:11px 13px;min-width:140px;font-size:15px}
+}
+</style>
+</head>
+<body>
+<canvas id="wall" aria-hidden="true"></canvas>
+
+<main>
+  <section class="stop" id="s0" data-i="0"><h1 class="sr">Bendac, the Perfect Pixel People. Premium LED screens, designed, built and installed by Bendac. This page is drawn as an LED screen: touch or point to see its diodes.</h1></section>
+  <section class="stop" id="s1" data-i="1"><h2 class="sr">2.5 mm pixel pitch: visitor centres and shops. Kennedy Space Center uses Versa across its site.</h2></section>
+  <section class="stop" id="s2" data-i="2"><h2 class="sr">10 mm pixel pitch: stadiums. Outdoor, IP67, up to 10,000 nits. On the wall: Inspire by Bendac.</h2></section>
+  <section class="stop" id="s3" data-i="3"><h2 class="sr">Start a project</h2></section>
+</main>
+
+<div class="hud" id="logo"><img src="media/logo-bendac-white.webp" alt="Bendac"></div>
+<div class="hud" id="talk"><button class="pill" id="talkbtn" type="button"><i></i>Start a project</button></div>
+<p class="hud" id="caption" aria-live="polite"></p>
+<div class="hud" id="cta" aria-label="Start a project">
+  <a class="cta primary" href="tel:+441225698188"><span class="mono">Call</span>01225 698 188</a>
+  <a class="cta" href="mailto:info@bendac.tech?subject=Start%20a%20project"><span class="mono">Email</span>info@bendac.tech</a>
+  <p>Free site survey. Design, build, installation and after-care, all by one in-house team.</p>
+</div>
+<div class="hud" id="gauge">
+  <div id="readout"><span class="k mono">Pixel pitch</span><span class="v" id="pv">0.4<small>MM</small></span></div>
+  <div id="rule">
+    <div class="line"></div>
+    <button class="stopbtn" data-go="0" style="left:0%" aria-current="true"><span class="nm">0.4 Boardroom</span><span class="tick"></span></button>
+    <button class="stopbtn" data-go="1" style="left:57.0%"><span class="nm">2.5 Shops</span><span class="tick"></span></button>
+    <button class="stopbtn" data-go="2" style="left:100%"><span class="nm">10 Stadium</span><span class="tick"></span></button>
+    <div class="mark" id="mark" style="left:0%"></div>
+  </div>
+</div>
+<div class="hud mono" id="lens" aria-hidden="true"></div>
+
+<video id="v0" src="media/hills.mp4" muted playsinline loop autoplay preload="auto" crossorigin="anonymous" hidden></video>
+<video id="v1" src="media/rings.mp4" muted playsinline loop preload="auto" crossorigin="anonymous" hidden></video>
+<video id="v2" src="media/inspire.mp4" muted playsinline loop preload="auto" crossorigin="anonymous" hidden></video>
+
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+<script type="module" src="main.js"></script>
+</body>
+</html>

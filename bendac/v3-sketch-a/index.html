@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../_a/icon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Bendac · Step back (sketch A)</title>
+<style>
+@font-face{font-family:"Archivo";src:url(archivo-latin-var.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"JB";src:url(jbmono-latin-var.woff2) format("woff2");font-weight:100 800;font-display:swap}
+:root{--g:#029046;--ink:#f2f5f3;--dim:rgba(242,245,243,.56);--pad:clamp(16px,4.2vw,40px)}
+*{box-sizing:border-box}
+html,body{margin:0;background:#000;color:var(--ink);-webkit-font-smoothing:antialiased}
+body{font-family:"Archivo",system-ui,sans-serif}
+canvas#c{position:fixed;inset:0;width:100vw;height:100vh;height:100lvh;display:block;touch-action:pan-y}
+#track{height:1000vh}
+.mono{font-family:"JB",ui-monospace,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+/* corners: the centre belongs to the wall (Igloo lesson) */
+.corner{position:fixed;z-index:3;pointer-events:none;color:var(--dim)}
+.tl{top:calc(var(--pad) + env(safe-area-inset-top));left:var(--pad)}
+.tr{top:calc(var(--pad) + env(safe-area-inset-top));right:var(--pad);text-align:right}
+.bl{bottom:calc(var(--pad) + env(safe-area-inset-bottom));left:var(--pad)}
+.br{bottom:calc(var(--pad) + env(safe-area-inset-bottom));right:var(--pad);text-align:right}
+.tl img{height:18px;display:block;opacity:.95}
+#dist b{color:var(--ink);font-weight:500}
+/* chapters */
+.ch{position:fixed;left:var(--pad);right:var(--pad);z-index:2;pointer-events:none;opacity:0;will-change:opacity,transform}
+.ch h1,.ch h2{margin:0;font-weight:500;font-stretch:112%;letter-spacing:-.02em;line-height:.98}
+.ch h1{font-size:clamp(38px,10.5vw,104px)}
+.ch h2{font-size:clamp(32px,8.6vw,84px)}
+.ch p{margin:14px 0 0;max-width:30em;color:var(--dim);font-size:clamp(15px,4vw,18px);line-height:1.45}
+#c1{bottom:calc(19vh + env(safe-area-inset-bottom))}
+#c2{bottom:calc(16vh + env(safe-area-inset-bottom))}
+#c3{top:calc(14vh + env(safe-area-inset-top))}
+.ch .line{display:block}
+.ch p.cap{margin-top:10px;font-size:10.5px;color:rgba(242,245,243,.5);line-height:1.5}
+#end{position:fixed;left:var(--pad);right:var(--pad);bottom:calc(var(--pad) + 34px + env(safe-area-inset-bottom));z-index:4;opacity:0;pointer-events:none}
+#end.on{pointer-events:auto}
+#end .line{display:block}
+#end h2{margin:0;font:500 clamp(32px,8.6vw,76px)/1 'Archivo',sans-serif;font-stretch:112%;letter-spacing:-.02em}
+#end p{margin:14px 0 18px;max-width:30em;color:var(--dim);font-size:clamp(15px,4vw,18px);line-height:1.45}
+#end .row2{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+#end .cta{padding:15px 20px;font-size:16px}
+#end .mono{color:var(--dim);line-height:1.6}
+@media (min-width:900px){#end{max-width:44vw}}
+/* chapter 3: the choice */
+#pick{position:fixed;left:var(--pad);right:var(--pad);bottom:calc(var(--pad) + 34px + env(safe-area-inset-bottom));z-index:4;opacity:0;pointer-events:none;transform:translateY(16px)}
+#pick.on{opacity:1;pointer-events:auto;transform:none;transition:opacity .5s,transform .5s}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{appearance:none;border:1px solid rgba(255,255,255,.22);background:rgba(10,12,11,.55);color:var(--ink);border-radius:999px;padding:11px 14px;font:500 14px/1 "Archivo",sans-serif;cursor:pointer;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .25s,border-color .25s}
+.chip small{display:block;margin-top:4px;color:var(--dim);font:400 10px/1 "JB",monospace;letter-spacing:.06em;text-transform:uppercase}
+.chip[aria-pressed=true]{background:var(--ink);color:#050605;border-color:var(--ink)}
+.chip[aria-pressed=true] small{color:rgba(5,6,5,.6)}
+.chip:focus-visible,.cta:focus-visible,#close:focus-visible{outline:2px solid var(--g);outline-offset:3px}
+#card{margin-top:14px;display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:end;max-width:560px;padding:14px 16px;border-radius:14px;background:rgba(8,10,9,.62);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08)}
+#card .prod{font:600 22px/1 "Archivo",sans-serif;font-stretch:115%}
+#card .spec{color:var(--dim)}
+#card .fact{grid-column:1/-1;font-size:14px;line-height:1.4;color:var(--ink)}
+.cta{appearance:none;border:0;border-radius:999px;background:var(--g);color:#fff;padding:12px 16px;font:600 14px/1 "Archivo",sans-serif;cursor:pointer;white-space:nowrap}
+/* contact panel, inside the site */
+#panel{position:fixed;inset:auto 0 0 0;z-index:10;transform:translateY(102%);transition:transform .55s cubic-bezier(.2,.8,.2,1);background:#0b0d0c;border-top:1px solid rgba(255,255,255,.1);border-radius:20px 20px 0 0;padding:22px var(--pad) calc(26px + env(safe-area-inset-bottom));max-height:88vh;overflow:auto}
+#panel.open{transform:none}
+#panel h3{margin:0 0 6px;font:600 26px/1.05 "Archivo",sans-serif;font-stretch:112%}
+#panel p{margin:0 0 14px;color:var(--dim);line-height:1.45}
+#panel ol{margin:0 0 16px;padding-left:20px;line-height:1.6}
+#panel .row{display:flex;gap:10px;flex-wrap:wrap}
+#panel .row div{flex:1 1 200px;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px}
+#close{position:absolute;top:14px;right:var(--pad);appearance:none;border:1px solid rgba(255,255,255,.2);background:none;color:var(--ink);border-radius:999px;width:38px;height:38px;font-size:18px;cursor:pointer}
+#scrim{position:fixed;inset:0;z-index:9;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .4s}
+#scrim.on{opacity:1;pointer-events:auto}
+#hint{transition:opacity .4s}
+#scrim-b{position:fixed;left:0;right:0;bottom:0;height:62vh;z-index:1;pointer-events:none;background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.66) 50%,transparent);opacity:0}
+#scrim-t{position:fixed;left:0;right:0;top:0;height:22vh;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,.8),transparent);opacity:0}
+@media (min-width:900px){
+  #c1,#c2{max-width:52vw}
+  #pick{left:auto;right:var(--pad);width:560px;bottom:calc(var(--pad) + 40px)}
+  #c3{max-width:40vw}
+  #panel{left:auto;right:var(--pad);bottom:var(--pad);width:520px;border-radius:20px;border:1px solid rgba(255,255,255,.1);transform:translateY(calc(100% + 60px))}
+}
+@media (prefers-reduced-motion:reduce){ #panel,#pick.on{transition:none} }
+</style>
+</head>
+<body>
+<canvas id="c" aria-hidden="true"></canvas>
+<div id="track"></div>
+<div id="scrim-b" aria-hidden="true"></div>
+<div id="scrim-t" aria-hidden="true"></div>
+
+<div class="corner tl"><img src="logo-bendac-white.webp" alt="Bendac"></div>
+<div class="corner tr mono">The Perfect<br>Pixel People</div>
+<div class="corner bl mono" id="dist"><b>6 mm</b> from the screen</div>
+<div class="corner br mono" id="hint">Scroll ↓</div>
+
+<section class="ch" id="c1" aria-label="Chapter one">
+  <h1><span class="line">Every picture</span><span class="line">starts with</span><span class="line">one light.</span></h1>
+</section>
+<section class="ch" id="c2" aria-label="Chapter two">
+  <h2><span class="line">Step back and</span><span class="line">the lights become</span><span class="line">a picture.</span></h2>
+  <p>The gap between the lights is the pixel pitch. Bendac builds screens from 0.4 mm to 10 mm, each set for how far away its viewers stand.</p>
+  <p class="mono cap">On this wall: AccuVision, built for BMW M Motorsport. 0.9 mm pitch, 210° curve.</p>
+</section>
+<section class="ch" id="c3" aria-label="Chapter three">
+  <h2><span class="line">How far away</span><span class="line">are your viewers?</span></h2>
+</section>
+
+<div id="pick" role="group" aria-label="Choose a viewing distance">
+  <div class="chips">
+    <button class="chip" data-k="board" aria-pressed="true">About 3 m<small>Boardroom</small></button>
+    <button class="chip" data-k="visit" aria-pressed="false">About 8 m<small>Visitor centre</small></button>
+    <button class="chip" data-k="stadium" aria-pressed="false">40 m and more<small>Stadium</small></button>
+  </div>
+  <div id="card" aria-live="polite">
+    <div><div class="prod" id="prod">Krystl</div><div class="spec mono" id="spec">Indoor · 0.4 mm and up</div></div>
+    <button class="cta" id="talk">Start a project</button>
+    <div class="fact" id="fact">Vinson &amp; Elkins are big users of Krystl: 16 screens across 5 locations.</div>
+  </div>
+</div>
+
+<section id="end" aria-label="Closing">
+  <h2><span class="line">Design. Build.</span><span class="line">Install. Look after.</span></h2>
+  <p>One in-house team plans, builds and commissions every Bendac screen, then keeps it perfect with its own after-care. 25+ years of LED experience, 250M+ pixels installed.</p>
+  <div class="row2"><button class="cta" id="talk2">Start a project</button><span class="mono">01225 698 188<br>info@bendac.tech</span></div>
+</section>
+<div id="scrim"></div>
+<aside id="panel" role="dialog" aria-modal="true" aria-labelledby="ph" aria-hidden="true">
+  <button id="close" aria-label="Close">×</button>
+  <h3 id="ph">Start a project</h3>
+  <p id="pctx">You told us your viewers are about 3 m away. That points to Krystl.</p>
+  <ol>
+    <li>A free site survey of your space.</li>
+    <li>Design and planning, by Bendac's in-house team.</li>
+    <li>Installation and commissioning.</li>
+    <li>After-care from the same team.</li>
+  </ol>
+  <div class="row">
+    <div><span class="mono" style="color:var(--dim)">Call</span><br>01225 698 188</div>
+    <div><span class="mono" style="color:var(--dim)">Email</span><br>info@bendac.tech</div>
+  </div>
+  <p style="margin-top:14px" class="mono">Monckton House, Trowbridge · London hub, Farringdon · Northern hub, Bolton</p>
+</aside>
+
+<video id="v-acc" src="accuvision.mp4" muted playsinline loop autoplay preload="auto" crossorigin="anonymous" hidden></video>
+<video id="v-board" src="boardroom.mp4" muted playsinline loop preload="auto" crossorigin="anonymous" hidden></video>
+<video id="v-visit" src="ksc.mp4" muted playsinline loop preload="auto" crossorigin="anonymous" hidden></video>
+<video id="v-stadium" src="stadium.mp4" muted playsinline loop preload="auto" crossorigin="anonymous" hidden></video>
+
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = s => document.querySelector(s);
+
+/* ---------- facts: every line comes from research/facts-2026-10-31.md ---------- */
+const PRESETS = {
+  board:   { video: 'v-board',   prod: 'Krystl', spec: 'Indoor · 0.4 mm and up', pitch: 0.9, W: 4.0, H: 2.25, dist: 3.0,
+             fact: 'Vinson & Elkins are big users of Krystl: 16 screens across 5 locations.', label: 'about 3 m' },
+  visit:   { video: 'v-visit',   prod: 'Versa',  spec: 'Indoor and outdoor · 2.5 mm and up', pitch: 2.5, W: 6.4, H: 3.6, dist: 8.0,
+             fact: 'Kennedy Space Center uses Versa throughout the site: over 200 sqm, seen by over 1.5 million visitors a year.', label: 'about 8 m' },
+  stadium: { video: 'v-stadium', prod: 'Dura',   spec: 'Outdoor · IP67 · up to 10,000 nits', pitch: 10, W: 9.0, H: 5.0, dist: 40.0,
+             fact: 'Plymouth Argyle: a 45 sqm big screen at Home Park.', label: '40 m and more' },
+};
+
+/* ---------- renderer ---------- */
+const canvas = $('#c');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance' });
+const DPR = Math.min(devicePixelRatio || 1, innerWidth < 700 ? 2 : 1.5);
+renderer.setPixelRatio(DPR);
+renderer.setSize(innerWidth, innerHeight, false);
+renderer.setClearColor(0x000000);
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x000000, 0.012);
+const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.001, 400);
+
+const vids = {}, texs = {};
+for (const id of ['v-acc', 'v-board', 'v-visit', 'v-stadium']) {
+  const v = document.getElementById(id); vids[id] = v;
+  const t = new THREE.VideoTexture(v); t.colorSpace = THREE.SRGBColorSpace; t.minFilter = t.magFilter = THREE.LinearFilter; texs[id] = t;
+}
+const playAll = () => Object.values(vids).forEach(v => v.play().catch(() => {}));
+playAll(); addEventListener('touchstart', playAll, { once: true, passive: true }); addEventListener('pointerdown', playAll, { once: true });
+
+/* ---------- the wall: every diode drawn in the shader ---------- */
+const wallU = {
+  mapA: { value: texs['v-acc'] }, mapB: { value: texs['v-acc'] }, sweep: { value: 1 },
+  cells: { value: new THREE.Vector2(2560, 1440) }, light: { value: new THREE.Vector2(0.5, 0.5) }, power: { value: 1 },
+};
+const wallMat = new THREE.ShaderMaterial({
+  uniforms: wallU,
+  vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
+  fragmentShader: `
+    uniform sampler2D mapA, mapB; uniform float sweep, power; uniform vec2 cells, light; varying vec2 vUv;
+    void main(){
+      vec2 g = vUv * cells; vec2 id = floor(g); vec2 f = fract(g) - 0.5; vec2 cuv = (id + 0.5) / cells;
+      // a scan-line wipe in diode steps: the new picture arrives column by column, like a real wall being fed
+      float col = id.x / cells.x;
+      vec3 c = col < sweep ? texture2D(mapB, cuv).rgb : texture2D(mapA, cuv).rgb;
+      float edge = smoothstep(0.02, 0.0, abs(col - sweep)) * step(sweep, 0.999);
+      float px = length(fwidth(g));               // diode cells per screen pixel: tiny when close, large when far
+      float d = length(f);
+      // up close, one pixel is three chips: red, green and blue, side by side under a lens
+      vec3 chips = vec3(0.0);
+      for (int k = 0; k < 3; k++) {
+        vec2 o = f - vec2(0.0, (float(k) - 1.0) * 0.105);
+        vec2 q = abs(o) - vec2(0.055, 0.032);
+        float r = length(max(q, 0.0)) + min(max(q.x, q.y), 0.0);
+        float die = smoothstep(0.012, 0.0, r);
+        float halo = exp(-max(r, 0.0) * 38.0) * 0.55;
+        vec3 ch = k == 0 ? vec3(1.0, 0.08, 0.05) * c.r : (k == 1 ? vec3(0.1, 1.0, 0.25) * c.g : vec3(0.12, 0.25, 1.0) * c.b);
+        chips += ch * (die * 2.2 + halo);
+      }
+      float lens = smoothstep(0.30, 0.27, d);     // the clear lens over the chips
+      float near = 1.0 - smoothstep(0.004, 0.05, px);
+      float diode = smoothstep(0.30, 0.20, d);
+      float bloom = exp(-d * d * 14.0) * 0.45;
+      vec3 round = c * (diode * 1.55 + bloom);
+      vec3 lit = mix(round, chips * (0.35 + 0.65 * lens) + c * bloom * 0.25, near);
+      float resolve = smoothstep(0.22, 0.62, px);
+      vec3 colr = mix(lit, c, resolve) * power;
+      colr += vec3(0.25, 1.0, 0.55) * edge * 0.6;
+      gl_FragColor = vec4(colr, 1.0);
+      #include <colorspace_fragment>
+    }`,
+});
+wallMat.extensions = { derivatives: true };
+const wall = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), wallMat);
+scene.add(wall);
+// cabinet frame and back, so from far away it reads as hardware, not a floating picture
+const frame = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ color: 0x0a0b0b }));
+scene.add(frame);
+
+/* floor that takes the wall's light (a cheap, honest spill: colour from the wall's lower rows) */
+const floorU = { map: wallU.mapA, mapB: wallU.mapB, sweep: wallU.sweep, W: { value: 6.4 }, H: { value: 3.6 }, power: wallU.power };
+const floorMat = new THREE.ShaderMaterial({
+  uniforms: floorU,
+  vertexShader: `varying vec3 wp; void main(){ vec4 w = modelMatrix * vec4(position,1.0); wp = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
+  fragmentShader: `
+    uniform sampler2D map, mapB; uniform float sweep, W, H, power; varying vec3 wp;
+    void main(){
+      float u = clamp(wp.x / W + 0.5, 0.0, 1.0);
+      vec3 c = (u < sweep ? texture2D(mapB, vec2(u, 0.12)).rgb : texture2D(map, vec2(u, 0.12)).rgb);
+      float inside = smoothstep(0.62, 0.45, abs(wp.x / W));
+      float fall = exp(-max(wp.z, 0.0) / (H * 0.9)) * inside;
+      vec3 col = c * fall * 0.32 * power + vec3(0.006);
+      gl_FragColor = vec4(col, 1.0);
+      #include <colorspace_fragment>
+    }`,
+});
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(300, 300), floorMat);
+floor.rotation.x = -Math.PI / 2; scene.add(floor);
+
+let W = 6.4, H = 3.6;
+function setSize(w, h, pitch) {
+  W = w; H = h;
+  wall.scale.set(W, H, 1); wall.position.set(0, H / 2 + 0.6, 0);
+  frame.scale.set(W + 0.06, H + 0.06, 0.12); frame.position.set(0, H / 2 + 0.6, -0.09);
+  floor.position.y = 0; floorU.W.value = W; floorU.H.value = H;
+  wallU.cells.value.set(Math.round(W * 1000 / pitch), Math.round(H * 1000 / pitch));
+}
+setSize(6.4, 3.6, 2.5);
+
+/* ---------- scroll is distance ---------- */
+let prog = 0, target = 0;
+const readScroll = () => { const m = document.documentElement.scrollHeight - innerHeight; target = m > 0 ? Math.min(1, Math.max(0, scrollY / m)) : 0; };
+addEventListener('scroll', readScroll, { passive: true }); readScroll();
+
+let px = 0, py = 0, tpx = 0, tpy = 0;
+const onPoint = (x, y) => { tpx = x / innerWidth - 0.5; tpy = y / innerHeight - 0.5; };
+addEventListener('pointermove', e => onPoint(e.clientX, e.clientY), { passive: true });
+addEventListener('touchmove', e => { const t = e.touches[0]; if (t) onPoint(t.clientX, t.clientY); }, { passive: true });
+
+let chosen = 'board', chosenDist = PRESETS.board.dist, sweepT = 1, inPick = false, pickBlend = 0;
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const clamp01 = x => Math.min(1, Math.max(0, x));
+const band = (x, a, b, c, d) => clamp01((x - a) / (b - a)) * (1 - clamp01((x - c) / (d - c)));
+
+function choose(k, instant) {
+  const p = PRESETS[k]; if (!p) return;
+  chosen = k;
+  document.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.k === k)));
+  $('#prod').textContent = p.prod; $('#spec').textContent = p.spec; $('#fact').textContent = p.fact;
+  $('#pctx').textContent = `You told us your viewers are ${p.label} away. That points to ${p.prod}.`;
+  // new content wipes in over the old, then the wall re-sizes for the place
+  wallU.mapA.value = wallU.sweep.value >= 1 ? wallU.mapB.value : wallU.mapA.value;
+  wallU.mapB.value = texs[p.video];
+  floorU.map.value = wallU.mapA.value;
+  sweepT = instant ? 1 : 0; wallU.sweep.value = sweepT;
+  targetSize = p; chosenDist = p.dist;
+  vids[p.video].play().catch(() => {});
+}
+let targetSize = null, sizeNow = { W: 6.4, H: 3.6, pitch: 2.5 };
+const STOPS = { board: [0.5, 0.62], visit: [0.62, 0.74], stadium: [0.74, 0.86] };
+const stopAt = x => x < STOPS.board[1] ? 'board' : x < STOPS.visit[1] ? 'visit' : 'stadium';
+document.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
+  const k = b.dataset.k, mid = (STOPS[k][0] + STOPS[k][1]) / 2 + (k === 'board' ? 0.02 : 0);
+  if (k !== chosen) choose(k);
+  const m = document.documentElement.scrollHeight - innerHeight;
+  scrollTo({ top: m * mid, behavior: reduce ? 'auto' : 'smooth' });
+}));
+
+/* contact panel */
+const panel = $('#panel'), scrim = $('#scrim');
+const openPanel = () => { panel.classList.add('open'); scrim.classList.add('on'); panel.setAttribute('aria-hidden', 'false'); $('#close').focus(); };
+const closePanel = () => { panel.classList.remove('open'); scrim.classList.remove('on'); panel.setAttribute('aria-hidden', 'true'); $('#talk').focus(); };
+$('#talk').addEventListener('click', openPanel); $('#talk2').addEventListener('click', openPanel); $('#close').addEventListener('click', closePanel); scrim.addEventListener('click', closePanel);
+addEventListener('keydown', e => { if (e.key === 'Escape' && panel.classList.contains('open')) closePanel(); });
+
+let bandTop = 0.2, bandBot = 0.68;
+function measureBand() {
+  const t = c3.getBoundingClientRect(), pk = pick.getBoundingClientRect();
+  bandTop = (t.bottom + 12) / innerHeight; bandBot = (pk.top - 10) / innerHeight;
+}
+addEventListener('resize', () => { requestAnimationFrame(measureBand); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight, false); });
+
+/* ---------- frame loop ---------- */
+const frames = []; let last = performance.now();
+window.__probe = { frames, videoTimes: [], choose };
+const scrimB = $('#scrim-b'), scrimT = $('#scrim-t');
+const c1 = $('#c1'), c2 = $('#c2'), c3 = $('#c3'), pick = $('#pick'), dist = $('#dist b'), hint = $('#hint');
+const portrait = () => innerHeight > innerWidth;
+const endEl = $('#end');
+document.fonts && document.fonts.ready.then(() => requestAnimationFrame(measureBand)); requestAnimationFrame(measureBand);
+let n = 0;
+function tick(now) {
+  const dt = Math.min(0.05, (now - last) / 1000); frames.push(now - last); last = now; n++;
+  prog += (target - prog) * (reduce ? 1 : 1 - Math.pow(0.0009, dt));
+  px += (tpx - px) * 0.06; py += (tpy - py) * 0.06;
+
+  // 0 to 0.62: the walk back, 6 mm to the edge of the room (exponential, so each scroll step feels equal)
+  const walk = ease(clamp01(prog / 0.45));
+  const walkDist = 0.006 * Math.pow(6.5 / 0.006, walk);
+  // 0.62 to 1: the chosen place
+  pickBlend = clamp01((prog - 0.43) / 0.07);
+  if (pickBlend > 0 && !inPick) { inPick = true; choose(stopAt(prog)); }
+  else if (inPick && pickBlend > 0.5 && stopAt(prog) !== chosen) { choose(stopAt(prog)); requestAnimationFrame(measureBand); }
+  if (pickBlend === 0 && inPick) { inPick = false; wallU.mapA.value = texs['v-acc']; wallU.mapB.value = texs['v-acc']; floorU.map.value = texs['v-acc']; wallU.sweep.value = 1; targetSize = { W: 6.4, H: 3.6, pitch: 2.5 }; }
+  const d = walkDist + (chosenDist - walkDist) * ease(pickBlend);
+
+  // wall size and pitch glide to the chosen place
+  if (targetSize) {
+    const k = 1 - Math.pow(0.02, dt);
+    sizeNow.W += (targetSize.W - sizeNow.W) * k; sizeNow.H += (targetSize.H - sizeNow.H) * k; sizeNow.pitch += (targetSize.pitch - sizeNow.pitch) * k;
+    setSize(sizeNow.W, sizeNow.H, sizeNow.pitch);
+  }
+  if (sweepT < 1) { sweepT = Math.min(1, sweepT + dt / (reduce ? 0.01 : 1.1)); wallU.sweep.value = sweepT; if (sweepT >= 1) { wallU.mapA.value = wallU.mapB.value; floorU.map.value = wallU.mapA.value; } }
+
+  // camera: starts on one diode off-centre, ends looking at the wall from eye height
+  const cy = H / 2 + 0.6, eye = 1.6;
+  const near = 1 - clamp01(walk * 1.4);
+  const fx = 0.21 * near, fy = cy + 0.11 * near;
+  const yLook = fy + (cy - fy) * (1 - near);
+  const camY = yLook + (eye - yLook) * clamp01((d - 1.5) / 6) * 0.6;
+  const sway = reduce ? 0 : Math.min(d, 6) * 0.05;
+  camera.near = Math.max(0.0008, d * 0.02); camera.far = d + 200;
+  // in the place chapter, frame the wall like a photographer would: same composition at 3 m or 40 m
+  const aspect = innerWidth / innerHeight;
+  const bandH = Math.max(0.2, bandBot - bandTop), bandC = (bandTop + bandBot) / 2;
+  const visW = portrait() ? Math.max(W / 0.94, (H / (0.92 * bandH)) * aspect) : W * 2.1;
+  const fovFrame = THREE.MathUtils.radToDeg(2 * Math.atan(visW / aspect / 2 / d));
+  camera.fov = 45 + (Math.min(fovFrame, 80) - 45) * ease(pickBlend);
+  const vh = 2 * d * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
+  const lift = (portrait() ? (0.5 - bandC) : 0.09) * vh * ease(pickBlend);
+  const slide = portrait() ? 0 : -0.2 * visW * ease(pickBlend);
+  const camY2 = camY + ((yLook - lift) - camY) * ease(pickBlend) * 0.85;
+  camera.position.set(fx + slide + px * sway * 2, camY2 - py * sway, d);
+  camera.lookAt(fx + slide, yLook - lift, 0);
+  camera.updateProjectionMatrix();
+
+  wallU.light.value.set(0.5 + px * 0.06 + 0.21 / W * near, 0.5 - py * 0.06 + 0.11 / H * near);
+  wallU.power.value = 0.35 + 0.65 * clamp01(prog / 0.04 + 0.35);
+
+  // copy: each line resolves as you reach it (Immersive Garden lesson)
+  const o1 = band(prog, -1, 0, 0.07, 0.12), o2 = band(prog, 0.17, 0.23, 0.36, 0.42), o3 = band(prog, 0.46, 0.51, 0.86, 0.9), oE = clamp01((prog - 0.9) / 0.05);
+  c1.style.opacity = o1; c1.style.transform = `translateY(${(1 - o1) * -12}px)`;
+  c2.style.opacity = o2; c2.style.transform = `translateY(${(1 - o2) * 16}px)`;
+  c3.style.opacity = o3; c3.style.transform = `translateY(${(1 - o3) * 16}px)`;
+  pick.classList.toggle('on', o3 > 0.6);
+  endEl.style.opacity = oE; endEl.style.transform = `translateY(${(1 - oE) * 18}px)`; endEl.classList.toggle('on', oE > 0.6);
+  wallU.power.value *= 1 - oE * 0.55;
+  scrimB.style.opacity = Math.max(band(prog, 0.13, 0.19, 0.38, 0.44), o3 * 0.9, oE); scrimT.style.opacity = Math.max(0.55, o3);
+  hint.style.opacity = prog > 0.47 ? 0 : 1;
+  dist.textContent = d < 1 ? `${Math.max(1, Math.round(d * 1000))} mm` : `${d < 10 ? d.toFixed(1) : Math.round(d)} m`;
+
+  renderer.render(scene, camera);
+  if (n % 30 === 0) window.__probe.videoTimes.push((inPick ? vids[PRESETS[chosen].video] : vids['v-acc']).currentTime);
+  requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>
