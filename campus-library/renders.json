@@ -1,0 +1,422 @@
+[
+  {
+    "group": "latest",
+    "name": "Building 1 Fitness Entrance",
+    "path": "assets/latest-01.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Building 2 Event Hall Entrance",
+    "path": "assets/latest-02.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Building 3 Basketball Entrance  Corrected",
+    "path": "assets/latest-03.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Building 4 Amphitheater Entrance",
+    "path": "assets/latest-04.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Glass Hallway into Building 1",
+    "path": "assets/latest-05.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Glass Hallway into Building 3",
+    "path": "assets/latest-06.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Glass Hallway into Building 2",
+    "path": "assets/latest-07.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Glass Hallway into Building 4",
+    "path": "assets/latest-08.webp"
+  },
+  {
+    "group": "latest",
+    "name": "First Glass Hallway",
+    "path": "assets/latest-09.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Second Glass Hallway",
+    "path": "assets/latest-10.webp"
+  },
+  {
+    "group": "latest",
+    "name": "First Hallway Roof Connection",
+    "path": "assets/latest-11.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Second Hallway Roof Connection",
+    "path": "assets/latest-12.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Outdoor Courts and Playground",
+    "path": "assets/latest-13.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Playground and Shaded Seating",
+    "path": "assets/latest-14.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Parking and Planted Islands  Corrected",
+    "path": "assets/latest-15.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Connected East Parking",
+    "path": "assets/latest-16.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Whole Campus Aerial",
+    "path": "assets/latest-17.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Playground Rails  Close View",
+    "path": "assets/latest-18.webp"
+  },
+  {
+    "group": "latest",
+    "name": "Main Entry Driving Lane  Corrected",
+    "path": "assets/latest-19.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Building 1 Fitness Entrance",
+    "path": "assets/progress-01.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Building 2 Event Hall Entrance",
+    "path": "assets/progress-02.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Building 3 Basketball Entrance  Corrected",
+    "path": "assets/progress-03.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Building 4 Amphitheater Entrance",
+    "path": "assets/progress-04.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Glass Hallway into Building 1",
+    "path": "assets/progress-05.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Glass Hallway into Building 3",
+    "path": "assets/progress-06.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Glass Hallway into Building 2",
+    "path": "assets/progress-07.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Glass Hallway into Building 4",
+    "path": "assets/progress-08.webp"
+  },
+  {
+    "group": "progress",
+    "name": "First Glass Hallway",
+    "path": "assets/progress-09.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Second Glass Hallway",
+    "path": "assets/progress-10.webp"
+  },
+  {
+    "group": "progress",
+    "name": "First Hallway Roof Connection",
+    "path": "assets/progress-11.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Second Hallway Roof Connection",
+    "path": "assets/progress-12.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Outdoor Courts and Playground",
+    "path": "assets/progress-13.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Playground and Shaded Seating",
+    "path": "assets/progress-14.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Parking and Planted Islands  Corrected",
+    "path": "assets/progress-15.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Connected East Parking",
+    "path": "assets/progress-16.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Whole Campus Aerial",
+    "path": "assets/progress-17.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Playground Rails  Close View",
+    "path": "assets/progress-18.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Main Entry Driving Lane  Corrected",
+    "path": "assets/progress-19.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Fitness Interior  Progress",
+    "path": "assets/progress-20.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Flexible Event Hall  Progress",
+    "path": "assets/progress-21.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Amphitheater Seating  Corrected",
+    "path": "assets/progress-22.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Amphitheater Stage  Corrected",
+    "path": "assets/progress-23.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Event Hall Washrooms  Progress",
+    "path": "assets/progress-24.webp"
+  },
+  {
+    "group": "progress",
+    "name": "Batting Lane  Progress",
+    "path": "assets/progress-25.webp"
+  },
+  {
+    "group": "connections",
+    "name": "H1 current main front",
+    "path": "assets/connections-01.webp"
+  },
+  {
+    "group": "connections",
+    "name": "H2 current main front",
+    "path": "assets/connections-02.webp"
+  },
+  {
+    "group": "connections",
+    "name": "H3 current main front",
+    "path": "assets/connections-03.webp"
+  },
+  {
+    "group": "connections",
+    "name": "H4 current main front",
+    "path": "assets/connections-04.webp"
+  },
+  {
+    "group": "connections",
+    "name": "H1 to H3 gallery H1 rear end inside",
+    "path": "assets/connections-05.webp"
+  },
+  {
+    "group": "connections",
+    "name": "H1 to H3 gallery H3 front end inside",
+    "path": "assets/connections-06.webp"
+  },
+  {
+    "group": "connections",
+    "name": "H2 to H4 gallery H2 rear end inside",
+    "path": "assets/connections-07.webp"
+  },
+  {
+    "group": "connections",
+    "name": "H2 to H4 gallery H4 front end inside",
+    "path": "assets/connections-08.webp"
+  },
+  {
+    "group": "connections",
+    "name": "H1 to H3 gallery crossing eye",
+    "path": "assets/connections-09.webp"
+  },
+  {
+    "group": "connections",
+    "name": "H2 to H4 gallery crossing eye",
+    "path": "assets/connections-10.webp"
+  },
+  {
+    "group": "connections",
+    "name": "H1 to H3 gallery roof join oblique",
+    "path": "assets/connections-11.webp"
+  },
+  {
+    "group": "connections",
+    "name": "H2 to H4 gallery roof join oblique",
+    "path": "assets/connections-12.webp"
+  },
+  {
+    "group": "connections",
+    "name": "new small play courts",
+    "path": "assets/connections-13.webp"
+  },
+  {
+    "group": "connections",
+    "name": "new small play shaded seating",
+    "path": "assets/connections-14.webp"
+  },
+  {
+    "group": "connections",
+    "name": "new parking south throughloop",
+    "path": "assets/connections-15.webp"
+  },
+  {
+    "group": "connections",
+    "name": "new connected east entry",
+    "path": "assets/connections-16.webp"
+  },
+  {
+    "group": "connections",
+    "name": "new four building campus oblique",
+    "path": "assets/connections-17.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Whole Campus",
+    "path": "assets/photos-01.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Campus Front View",
+    "path": "assets/photos-02.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Campus Side View",
+    "path": "assets/photos-03.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Northeast Campus View",
+    "path": "assets/photos-04.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Northwest Campus View",
+    "path": "assets/photos-05.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Buildings and Sports Fields",
+    "path": "assets/photos-06.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Glass Galleries",
+    "path": "assets/photos-07.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Soccer Fields and Shaded Stands",
+    "path": "assets/photos-08.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Pickleball Courts",
+    "path": "assets/photos-09.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Outdoor Stage and Plaza",
+    "path": "assets/photos-10.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Batting Complex",
+    "path": "assets/photos-11.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Building Entrances and Parking",
+    "path": "assets/photos-12.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Amphitheater",
+    "path": "assets/photos-13.webp"
+  },
+  {
+    "group": "photos",
+    "name": "Concession Lobby",
+    "path": "assets/photos-14.webp"
+  },
+  {
+    "group": "concept",
+    "name": "Daytime aerial",
+    "path": "assets/concept-01.webp"
+  },
+  {
+    "group": "concept",
+    "name": "Night aerial",
+    "path": "assets/concept-02.webp"
+  },
+  {
+    "group": "concept",
+    "name": "Arrival",
+    "path": "assets/concept-03.webp"
+  },
+  {
+    "group": "concept",
+    "name": "Event venue",
+    "path": "assets/concept-04.webp"
+  },
+  {
+    "group": "concept",
+    "name": "Garage at night",
+    "path": "assets/concept-05.webp"
+  },
+  {
+    "group": "concept",
+    "name": "Garden",
+    "path": "assets/concept-06.webp"
+  },
+  {
+    "group": "concept",
+    "name": "Sports hall interior",
+    "path": "assets/concept-07.webp"
+  },
+  {
+    "group": "concept",
+    "name": "Stage",
+    "path": "assets/concept-08.webp"
+  },
+  {
+    "group": "concept",
+    "name": "Water terraces",
+    "path": "assets/concept-09.webp"
+  }
+]

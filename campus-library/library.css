@@ -1,0 +1,18 @@
+/* built-from: existing OurCampus drone preview palette and home-base gallery layout. */
+:root{color-scheme:dark;background:#20231e;color:#f6f2e9;font:16px/1.55 system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0}
+a{color:inherit;text-underline-offset:.25em}a:focus-visible{outline:2px solid #f4da99;outline-offset:3px}
+header,main{max-width:78rem;margin:auto;padding:1rem clamp(1rem,5vw,3rem)}
+header{display:flex;justify-content:space-between;align-items:center;gap:1rem;border-bottom:1px solid #474b40;font-size:.9rem}
+header a{display:flex;align-items:center;min-height:44px}header a:first-child{letter-spacing:.14em;font-weight:700;text-decoration:none}
+main{padding-top:clamp(1.5rem,5vw,4rem);padding-bottom:4rem}
+h1,h2{font:400 clamp(2rem,5vw,4.7rem)/1.04 Georgia,serif;text-wrap:balance;margin:0 0 .28em}h2{font-size:clamp(1.7rem,3.4vw,3rem)}
+p{margin:.4rem 0 1.15rem;color:#e2dfd3}.eyebrow{font-size:.74rem;letter-spacing:.11em;color:#e7d49a;text-transform:uppercase;margin:0 0 .5rem}
+nav,.actions{display:flex;flex-wrap:wrap;gap:.55rem;margin:1rem 0}
+.actions a,nav a{min-height:44px;display:flex;align-items:center;padding:.45rem .8rem;border:1px solid #5d6250;border-radius:.2rem;text-decoration:none}
+.actions a:first-child{background:#ebdcae;color:#20231e;font-weight:700}
+a:hover{filter:brightness(1.14)}section{margin-top:2rem;padding-top:1.2rem;border-top:1px solid #525746;scroll-margin-top:1rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
+figure{margin:0}img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:.2rem;background:#30342a}
+figcaption{font-size:.92rem;color:#dedace;margin:.45rem 0}
+footer{border-top:1px solid #525746;margin-top:3rem;padding-top:1.1rem}

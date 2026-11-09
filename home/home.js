@@ -69,7 +69,7 @@ async function build() {
   }
   const P = data.projects;
   const words = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
-  const ledeBase = `${words[P.length] || P.length} projects. Every piece, what it is, and a link that opens it.`;
+  const ledeBase = `${words[P.length] || P.length} projects. Browse the models, films, drawings and websites.`;
   lede.textContent = ledeBase;
 
   document.getElementById('projects').innerHTML = P.map((p, i) => project(p, i, P.length)).join('');
