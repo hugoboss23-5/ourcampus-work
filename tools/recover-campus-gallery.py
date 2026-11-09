@@ -49,7 +49,7 @@ out.write_text(f"""<!doctype html>
 <header><a href="../">OURCAMPUS</a><a href="../#p-tennessee">All work ↗</a></header>
 <main><p class="eyebrow">DESIGN STUDIES / OCTOBER 2026</p><h1>Campus renders and films</h1>
 <p>Progress views of the Tennessee campus and the early Worldwide Stages concept.</p>
-<div class="actions"><a href="../tennessee-campus-preview/">Play the drone preview ↗</a><a href="{workers}">Drawings and 3D ↗</a><a href="{tour}">Narrated tour · shared Drive access ↗</a></div>
+<div class="actions"><a href="../tennessee-interiors/">Open the October 28 interiors ↗</a><a href="../tennessee-campus-preview/">Play the drone preview ↗</a><a href="{workers}">Drawings and 3D ↗</a><a href="{tour}">Narrated tour · shared Drive access ↗</a></div>
 <nav aria-label="Render collections">{''.join(f'<a href="#{tag}">{title}</a>' for tag,title,*_ in groups)}</nav>
 {''.join(sections)}
 <footer><a href="{archive}">Originals in Hugo’s private Drive archive ↗</a><p>Editable models, research and source packages. Access follows the existing Drive permissions.</p></footer>
